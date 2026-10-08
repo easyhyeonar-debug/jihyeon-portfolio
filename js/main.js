@@ -7,12 +7,14 @@ if (toggle && nav) {
     const open = nav.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', open);
   });
-  nav.querySelectorAll('a').forEach((link) =>
-    link.addEventListener('click', () => {
-      nav.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', false);
-    })
-  );
+  const closeMenu = () => {
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', false);
+  };
+  nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+  // 태블릿 이상(744px+)으로 넓어지면 열린 모바일 메뉴 닫기
+  window.matchMedia('(min-width: 744px)').addEventListener('change', (e) => { if (e.matches) closeMenu(); });
 }
 
 // 작업 필터
