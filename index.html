@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이지현 포트폴리오</title>
+  <meta name="description" content="이지현의 작업과 프로젝트를 소개하는 포트폴리오입니다.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo">LEE JIHYEON</a>
+      <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Portfolio</p>
+        <h1>안녕하세요,<br>이지현입니다.</h1>
+        <p class="hero-sub">한 줄 소개를 여기에 적어주세요.</p>
+        <a href="#work" class="btn">작업 보기</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container about">
+        <div class="about-photo">
+          <img src="images/profile.jpg" alt="이지현 프로필 사진" onerror="this.parentElement.classList.add('is-empty')">
+        </div>
+        <div class="about-text">
+          <h2 class="section-title">About</h2>
+          <p>자기소개를 여기에 적어주세요. 하는 일, 관심 분야, 작업 방식 등을 2~3문장으로 정리하면 좋습니다.</p>
+          <dl class="info">
+            <div><dt>Skills</dt><dd>Photoshop, Illustrator, Figma</dd></div>
+            <div><dt>Education</dt><dd>학교 / 전공</dd></div>
+            <div><dt>Experience</dt><dd>경력 사항</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="section">
+      <div class="container">
+        <h2 class="section-title">Work</h2>
+        <div class="filters" role="tablist">
+          <button class="filter is-active" data-filter="all">All</button>
+          <button class="filter" data-filter="graphic">Graphic</button>
+          <button class="filter" data-filter="uiux">UI/UX</button>
+          <button class="filter" data-filter="video">Video</button>
+        </div>
+        <ul class="grid">
+          <li class="card" data-category="graphic">
+            <a href="projects/project-01.html">
+              <div class="thumb"><img src="images/work-01.jpg" alt="" onerror="this.remove()"></div>
+              <h3>프로젝트 제목 01</h3>
+              <p>Graphic · 2026</p>
+            </a>
+          </li>
+          <li class="card" data-category="uiux">
+            <a href="projects/project-01.html">
+              <div class="thumb"><img src="images/work-02.jpg" alt="" onerror="this.remove()"></div>
+              <h3>프로젝트 제목 02</h3>
+              <p>UI/UX · 2026</p>
+            </a>
+          </li>
+          <li class="card" data-category="video">
+            <a href="projects/project-01.html">
+              <div class="thumb"><img src="images/work-03.jpg" alt="" onerror="this.remove()"></div>
+              <h3>프로젝트 제목 03</h3>
+              <p>Video · 2025</p>
+            </a>
+          </li>
+          <li class="card" data-category="graphic">
+            <a href="projects/project-01.html">
+              <div class="thumb"><img src="images/work-04.jpg" alt="" onerror="this.remove()"></div>
+              <h3>프로젝트 제목 04</h3>
+              <p>Graphic · 2025</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="contact-lead">함께 작업하고 싶다면 연락 주세요.</p>
+        <ul class="contact-links">
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+          <li><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© <span id="year"></span> Lee Jihyeon</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
