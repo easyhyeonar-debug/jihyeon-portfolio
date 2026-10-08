@@ -102,11 +102,38 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hero {
   min-height: 100vh;
   min-height: 100svh;
-  display: flex; align-items: center;
-  padding: calc(var(--header-h) + 40px) 0 56px;
+  display: flex; flex-direction: column;
+  padding: var(--header-h) 0 56px;
 }
 .eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-.hero h1 { font-size: clamp(36px, 10vw, 96px); line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; }
+.hero h1 { font-size: clamp(32px, 7vw, 64px); line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; }
+
+/* Vector Wordmark (js/wordmark.js) */
+.wordmark {
+  --wordmark-text: var(--text);
+  --wordmark-shade: var(--muted);
+  --wordmark-accent: var(--text);
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 260px;
+  overflow: hidden;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.wordmark-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.wordmark-label {
+  position: absolute; left: 0; top: 0;
+  pointer-events: none; white-space: nowrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px; letter-spacing: 0.08em;
+}
+.wordmark.is-fallback {
+  display: flex; align-items: center; justify-content: center;
+  font-family: Inter, system-ui, sans-serif; font-weight: 800; letter-spacing: -0.02em;
+  font-size: calc(200 / 1200 * 100vw); color: var(--text);
+}
+.hero-intro { padding-top: 8px; }
 .hero-sub { margin-top: 20px; font-size: clamp(16px, 2.2vw, 22px); color: var(--muted); }
 .btn {
   display: inline-flex; align-items: center; min-height: 48px;
@@ -222,8 +249,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* ---------- 스마트폰 가로 (높이가 낮은 화면) ---------- */
 @media (orientation: landscape) and (max-height: 500px) {
-  .hero { min-height: auto; padding: calc(var(--header-h) + 32px) 0 48px; }
-  .hero h1 { font-size: clamp(32px, 6vw, 56px); }
+  .hero { min-height: auto; padding: var(--header-h) 0 48px; }
+  .wordmark { flex: none; height: 260px; }
+  .hero h1 { font-size: clamp(28px, 5vw, 48px); }
   .nav { max-height: calc(100vh - var(--header-h)); overflow-y: auto; }
 }
 
