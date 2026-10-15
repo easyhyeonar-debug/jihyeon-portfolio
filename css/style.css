@@ -134,7 +134,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-size: calc(200 / 1200 * 100vw); color: var(--text);
 }
 .hero-intro { padding-top: 8px; }
-.hero-sub { margin-top: 20px; font-size: clamp(16px, 2.2vw, 22px); color: var(--muted); }
+.hero-quote { margin-top: 24px; padding-left: 14px; border-left: 2px solid var(--line); }
+.hero-quote p { font-size: 15px; font-weight: 600; line-height: 1.5; }
+.hero-quote p span { display: block; font-weight: 400; color: var(--muted); }
+.hero-quote cite { display: block; margin-top: 4px; font-size: 13px; font-style: normal; color: var(--muted); }
+.hero-sub { margin-top: 20px; max-width: 34em; font-size: 15px; color: var(--muted); }
 .btn {
   display: inline-flex; align-items: center; min-height: 48px;
   margin-top: 32px; padding: 0 28px;
@@ -273,6 +277,11 @@ html.paged {
 /* ---------- lg: 1024+ 태블릿 가로 · 노트북 ---------- */
 @media (min-width: 1024px) {
   :root { --gutter: 40px; --section-y: 120px; }
+  /* PC: 제목 한 줄, 40pt. 1024~1100px처럼 폭이 모자라면 한 줄에 맞게 살짝 줄어듦 */
+  .hero h1 { font-size: min(40pt, calc((100vw - 2 * var(--gutter)) / 19.5)); white-space: nowrap; }
+  .hero h1 br { display: none; }
+  .hero-quote p, .hero-sub { font-size: 16px; }
+  .hero-sub { max-width: none; white-space: nowrap; }
   .nav { gap: 36px; }
   .about { gap: 72px; }
   .grid { gap: 56px 32px; }
