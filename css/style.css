@@ -130,8 +130,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .wordmark.is-fallback {
   display: flex; align-items: center; justify-content: center;
-  font-family: Inter, system-ui, sans-serif; font-weight: 800; letter-spacing: -0.02em;
-  font-size: calc(200 / 1200 * 100vw); color: var(--text);
+  font-family: Montserrat, sans-serif; font-weight: 700;
+  font-size: calc(155 / 1200 * 100vw); color: var(--text);
 }
 .hero-intro { padding-top: 8px; }
 .hero-quote { margin-top: 24px; padding-left: 14px; border-left: 2px solid var(--line); }

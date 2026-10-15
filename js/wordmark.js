@@ -23,9 +23,9 @@
   const DOT_DIAMETER = 4 / 440;
   const DOT_PITCH = 12 / 440;
 
-  // 원본 프리셋 값
+  // 원본 프리셋 값 (서체 Montserrat Bold, PORTFOLIO가 화면 폭의 약 80%가 되도록 크기 155)
   const OPTIONS = {
-    font: { family: "Inter, system-ui, sans-serif", weight: "800", style: "normal", size: 200, letterSpacing: "-0.02em" },
+    font: { family: "Montserrat, sans-serif", weight: "700", style: "normal", size: 155, letterSpacing: "0px" },
     reach: 290,
     speed: 50,
     damping: 60,
