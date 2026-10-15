@@ -106,7 +106,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   padding: var(--header-h) 0 56px;
 }
 .eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-.hero h1 { font-size: clamp(32px, 7vw, 64px); line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; }
+.hero h1 { font-size: clamp(22px, 7.4vw, 40px); line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; }
 
 /* Vector Wordmark (js/wordmark.js) */
 .wordmark {
@@ -195,6 +195,41 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .project-images { display: grid; gap: 16px; }
 .project-images .placeholder { aspect-ratio: 16 / 10; border-radius: 10px; background: var(--thumb); }
 
+/* ---------- 섹션 페이지네이션 (메인 페이지, html.paged) ---------- */
+html.paged {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 0;
+}
+.paged .page {
+  min-height: 100vh;
+  min-height: 100svh;
+  scroll-snap-align: start;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.paged .section { padding-top: calc(var(--header-h) + 40px); padding-bottom: 56px; }
+.paged .site-footer { scroll-snap-align: end; }
+
+.pager {
+  position: fixed; z-index: 9;
+  right: calc(6px + var(--safe-r)); top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 2px;
+}
+.pager button {
+  position: relative; width: 28px; height: 28px;
+  display: grid; place-items: center;
+}
+.pager button::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--muted); opacity: .45;
+  transition: transform .25s, opacity .25s, background .25s;
+}
+.pager button[aria-current="true"]::before { background: var(--text); opacity: 1; transform: scale(1.5); }
+.pager .pager-label {
+  position: absolute; right: 30px; top: 50%; transform: translateY(-50%);
+  font-size: 12px; letter-spacing: 0.06em; color: var(--muted);
+  white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s;
+}
+
 /* ---------- 마우스 사용 기기에서만 호버 효과 ---------- */
 @media (hover: hover) and (pointer: fine) {
   .nav a { transition: color .2s; }
@@ -203,6 +238,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .card a:hover .thumb img { transform: scale(1.03); }
   .contact-links a:hover { color: var(--accent); }
   .back:hover { color: var(--text); }
+  .pager button:hover .pager-label { opacity: 1; }
+  .pager button:hover::before { opacity: 1; }
 }
 
 /* ---------- sm: 600+ 폴더블 펼침 · 소형 태블릿 ---------- */
@@ -230,6 +267,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .about-text > p { font-size: 18px; }
   .info div { grid-template-columns: 110px 1fr; }
   .section-title { margin-bottom: 36px; }
+  .pager { right: calc(16px + var(--safe-r)); }
 }
 
 /* ---------- lg: 1024+ 태블릿 가로 · 노트북 ---------- */
@@ -249,9 +287,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* ---------- 스마트폰 가로 (높이가 낮은 화면) ---------- */
 @media (orientation: landscape) and (max-height: 500px) {
+  html.paged { scroll-snap-type: none; }
+  .paged .page { min-height: auto; }
+  .pager { display: none; }
   .hero { min-height: auto; padding: var(--header-h) 0 48px; }
   .wordmark { flex: none; height: 260px; }
-  .hero h1 { font-size: clamp(28px, 5vw, 48px); }
+  .hero h1 { font-size: clamp(28px, 5vw, 40px); }
   .nav { max-height: calc(100vh - var(--header-h)); overflow-y: auto; }
 }
 

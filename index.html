@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="paged">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -15,7 +15,7 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#top" class="logo">LEE JIHYEON</a>
+      <a href="#home" class="logo">LEE JIHYEON</a>
       <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
         <span></span><span></span>
       </button>
@@ -29,18 +29,18 @@
 
   <main id="top">
     <!-- Hero -->
-    <section class="hero">
+    <section id="home" class="hero page" data-page="Home">
       <div class="wordmark" data-text="JIHYEON" role="img" aria-label="JIHYEON"></div>
       <div class="container hero-intro">
         <p class="eyebrow">Portfolio</p>
-        <h1>안녕하세요,<br>이지현입니다.</h1>
+        <h1>아이디어에 형태를,<br>형태에 쓸모를 더하는 디자이너</h1>
         <p class="hero-sub">한 줄 소개를 여기에 적어주세요.</p>
         <a href="#work" class="btn">작업 보기</a>
       </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="section">
+    <section id="about" class="section page" data-page="About">
       <div class="container about">
         <div class="about-photo">
           <img src="images/profile.jpg" alt="이지현 프로필 사진" onerror="this.parentElement.classList.add('is-empty')">
@@ -58,7 +58,7 @@
     </section>
 
     <!-- Work -->
-    <section id="work" class="section">
+    <section id="work" class="section page" data-page="Work">
       <div class="container">
         <h2 class="section-title">Work</h2>
         <div class="filters" role="tablist">
@@ -101,7 +101,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="section contact">
+    <section id="contact" class="section contact page" data-page="Contact">
       <div class="container">
         <h2 class="section-title">Contact</h2>
         <p class="contact-lead">함께 작업하고 싶다면 연락 주세요.</p>
@@ -112,6 +112,8 @@
       </div>
     </section>
   </main>
+
+  <nav class="pager" aria-label="섹션 이동"></nav>
 
   <footer class="site-footer">
     <div class="container">© <span id="year"></span> Lee Jihyeon</div>
