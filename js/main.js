@@ -32,6 +32,22 @@ filters.forEach((btn) => {
   });
 });
 
+// 상세 페이지 뒤로가기: 사이트 안에서 들어왔으면 이전 화면(스크롤 위치 포함)으로, 아니면 작업 목록으로
+const backBtn = document.querySelector('.back-float');
+
+if (backBtn) {
+  backBtn.addEventListener('click', (e) => {
+    let fromSite = false;
+    try {
+      fromSite = document.referrer && new URL(document.referrer).origin === location.origin;
+    } catch (err) {}
+    if (fromSite && history.length > 1) {
+      e.preventDefault();
+      history.back();
+    }
+  });
+}
+
 // 섹션 페이지네이션 점 표시
 const pager = document.querySelector('.pager');
 const pages = document.querySelectorAll('.page');

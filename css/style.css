@@ -192,7 +192,22 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* ---------- Project detail ---------- */
 .project { padding: calc(var(--header-h) + 48px) 0 var(--section-y); }
-.back { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 24px; color: var(--muted); font-size: 14px; }
+/* 상세 페이지: GNB 없이 상단 뒤로가기 버튼만 (작품에 집중) */
+.back-float {
+  position: fixed; z-index: 10;
+  top: calc(16px + env(safe-area-inset-top, 0px)); left: calc(16px + var(--safe-l));
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center;
+  color: #fff; background: rgba(0, 0, 0, .45);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  transition: background .2s;
+}
+.detail .project { padding-top: 96px; }
+
+/* 상세 페이지 대표 이미지: 화면 맨 위부터 폭 꽉 채움 */
+.project-cover { margin: 0; background: var(--thumb); }
+.project-cover img { width: 100%; height: auto; }
+.project-cover + .project { padding-top: 40px; }
 .project h1 { font-size: clamp(30px, 7vw, 60px); line-height: 1.2; letter-spacing: -0.02em; }
 .project-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin: 20px 0 36px; color: var(--muted); font-size: 14px; }
 .project-body p { max-width: 680px; font-size: 17px; margin-bottom: 36px; }
@@ -241,7 +256,7 @@ html.paged {
   .filter:hover { color: var(--text); }
   .card a:hover .thumb img { transform: scale(1.03); }
   .contact-links a:hover { color: var(--accent); }
-  .back:hover { color: var(--text); }
+  .back-float:hover { background: rgba(0, 0, 0, .7); }
   .pager button:hover .pager-label { opacity: 1; }
   .pager button:hover::before { opacity: 1; }
 }
@@ -258,6 +273,7 @@ html.paged {
 /* ---------- md: 744+ 태블릿 세로 ---------- */
 @media (min-width: 744px) {
   :root { --header-h: 64px; --gutter: 32px; --section-y: 104px; }
+  .back-float { top: 24px; left: calc(24px + var(--safe-l)); width: 48px; height: 48px; }
   .logo { font-size: 16px; }
   .nav-toggle { display: none; }
   .nav {
