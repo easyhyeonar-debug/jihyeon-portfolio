@@ -24,11 +24,109 @@
           <p>제작사였던 회사는 새로운 배우를 찾기 어려웠고, 배우들은 오디션 정보를 얻기 어려웠습니다. 그래서 배우가 오디션에 지원할수록, 제작사가 찾아볼 수 있는 배우 DB도 함께 쌓이는 구조를 만들고자 했습니다.</p>
           <p>진행 중인 오디션을 한곳에 모은 캐스팅 앱을 기획부터 디자인까지 맡아, 개발자 1명과 함께 iOS와 Android에 출시했습니다.</p>
         </section>
-        <div class="project-images">
-          <!-- <img src="../images/project-01/01.jpg" alt=""> 형태로 이미지를 추가하세요 -->
-          <div class="placeholder"></div>
-          <div class="placeholder"></div>
-        </div>
+
+        <!-- 1. 왜 만들었어? — 짧게 -->
+        <section class="case" id="problem" aria-labelledby="problem-title">
+          <p class="case-label">01 Problem</p>
+          <h2 id="problem-title">작품도 배우도 늘었는데, 둘을 잇는 길은 그대로였다</h2>
+          <p>캐스팅플레이스를 만든 회사는 직접 작품을 만드는 제작사였습니다. 작품을 준비할 때마다 같은 벽에 부딪혔습니다. 이미 알려진 배우는 비싸고, 새로운 얼굴은 찾을 곳이 없었습니다.</p>
+          <p>시장 전체도 같았습니다. OTT와 숏폼이 늘면서 콘텐츠 시장은 2010년 약 5조 원에서 2025년 약 12조 원으로 커졌고, 배우 지망생도 약 10만 명에서 30만 명으로 늘었습니다. 작품도 배우도 늘었는데, 둘을 잇는 통로는 여전히 에이전시와 지인 추천 및 학원뿐이었습니다.</p>
+          <p class="case-note">출처: 정보통신기획평가원(2018·2020·2025), 메조미디어(2030 전망). 수치는 기획서 그래프에서 읽은 근사치입니다.</p>
+
+          <h3 class="case-subtitle">문제 정의: 배우는 기회를 모르고, 제작사는 배우를 모른다</h3>
+          <table class="case-table">
+            <thead>
+              <tr><th scope="col">누구</th><th scope="col">겪는 문제</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">제작사 (우리)</th><td>원하는 배우보다 추천받은 배우에 의존한다. 신선한 신인을 찾고 싶어도 찾을 곳이 없다.</td></tr>
+              <tr><th scope="row">배우</th><td>소속사가 있어도 오디션 정보가 부족하고, 프로필을 돌리는 데 돈과 시간이 든다.</td></tr>
+              <tr><th scope="row">매니지먼트</th><td>가능성 있는 신인을 발굴할 체계적인 통로가 없다.</td></tr>
+            </tbody>
+          </table>
+          <p>세 문제의 뿌리는 하나였습니다. 배우와 제작자 사이에 정보가 오가는 통로가 없다.</p>
+        </section>
+
+        <!-- 2. 그걸 어떻게 알았어? — 중간 -->
+        <section class="case" id="insight" aria-labelledby="insight-title">
+          <p class="case-label">02 Insight</p>
+          <h2 id="insight-title">배우는 기회를 원하지만, 노출은 꺼린다</h2>
+          <p>이 문제는 제가 먼저 겪었습니다. 영화 제작실장으로 일할 때, 인맥이 없으면 단역이나 보조출연자 한 명 구하기도 어려웠습니다. 아는 매니저에게 연기학원을 소개받고, 직접 오디션을 보러 가고, 출연료를 하나하나 맞춰야 했습니다.</p>
+          <p>이후 제작사이자 매니지먼트를 함께 운영한 회사에서 소속 배우와 매니저들을 가까이서 지켜보며, 배우 쪽에서도 같은 벽이 있다는 것을 확인했습니다. 배우를 찾는 쪽도, 기회를 찾는 쪽도 사람에게만 기대고 있었습니다.</p>
+          <p class="case-note">* 검증: [사내 매니저 검토 결과가 오면 채울 자리]</p>
+
+          <!-- 인터뷰 내용 이미지: ../images/project-01/interview.png 로 넣고 아래 div를 img로 교체 -->
+          <figure class="case-figure">
+            <div class="placeholder" role="img" aria-label="인터뷰 내용 이미지 자리"><span>인터뷰 이미지 자리</span></div>
+          </figure>
+
+          <div class="case-callout">
+            <p class="case-callout-label">핵심 인사이트</p>
+            <p class="case-callout-title">배우는 기회를 원하지만, 노출은 꺼린다.</p>
+            <p>배우는 더 많은 오디션 정보를 원하면서도, 직업 특성상 프로필과 오디션 활동이 드러나는 것을 조심스러워했습니다. 신인은 알려지고 싶어 하고, 경력 배우는 맡아온 배역 이미지를 지키고 싶어 했습니다. 그래서 설계 원칙을 이렇게 정했습니다.</p>
+            <p class="case-principle">정보는 활짝 열고, 나는 원하는 만큼만 보여준다.</p>
+          </div>
+        </section>
+
+        <!-- 3. 그래서 어떻게 풀기로 했어? — 중간 -->
+        <section class="case" id="strategy" aria-labelledby="strategy-title">
+          <p class="case-label">03 Strategy &amp; Structure</p>
+          <h2 id="strategy-title">지원할수록 배우 DB가 쌓이는 구조</h2>
+
+          <h3 class="case-subtitle">우리가 가진 강점</h3>
+          <p>제작사이자 매니지먼트를 함께 운영하는 회사였기 때문에, 이 문제를 풀 조건이 갖춰져 있었습니다.</p>
+          <ul class="case-list">
+            <li><strong>오디션을 직접 공급할 수 있다:</strong> 자사 작품의 오디션을 플랫폼에 열어, 출시 첫날부터 배우가 지원할 기회가 있었습니다. 오디션이 없으면 배우가 오지 않는 플랫폼의 첫 난관을 처음부터 풀고 시작한 것입니다.</li>
+            <li><strong>배우를 가까이서 이해할 수 있다:</strong> 사내 매니지먼트를 통해 소속 배우들이 무엇을 원하고 무엇을 꺼리는지 가까이서 볼 수 있었습니다.</li>
+          </ul>
+
+          <h3 class="case-subtitle">서비스 구조</h3>
+          <p>캐스팅플레이스는 배우 앱과 어드민 두 축으로 설계했고, 두 축을 잇는 것은 프로필입니다. 배우가 앱에서 정해진 형식으로 프로필을 만들면, 어드민에서는 모든 지원자를 같은 기준으로 비교할 수 있습니다.</p>
+
+          <!-- 서비스 구조도 이미지: ../images/project-01/structure.png 로 넣고 아래 div를 img로 교체 -->
+          <figure class="case-figure">
+            <div class="placeholder" role="img" aria-label="서비스 구조도 이미지 자리"><span>서비스 구조도 이미지 자리</span></div>
+          </figure>
+        </section>
+
+        <!-- 4. 화면은 어떻게 만들었어? — 가장 길게 -->
+        <section class="case" id="design" aria-labelledby="design-title">
+          <p class="case-label">04 Design Decisions</p>
+          <h2 id="design-title">디자인 결정</h2>
+          <p>화면 흐름 전체에 대한 설명을 적어주세요. (홈 → 프로필 → 커뮤니티 → 멤버십 → 이벤트)</p>
+          <div class="case-screen" id="design-home">
+            <h3>홈</h3>
+            <div class="placeholder"></div>
+            <p>홈 화면의 디자인 결정을 적어주세요.</p>
+          </div>
+          <div class="case-screen" id="design-profile">
+            <h3>프로필</h3>
+            <div class="placeholder"></div>
+            <p>프로필 화면의 디자인 결정을 적어주세요.</p>
+          </div>
+          <div class="case-screen" id="design-community">
+            <h3>커뮤니티</h3>
+            <div class="placeholder"></div>
+            <p>커뮤니티 화면의 디자인 결정을 적어주세요.</p>
+          </div>
+          <div class="case-screen" id="design-membership">
+            <h3>멤버십</h3>
+            <div class="placeholder"></div>
+            <p>멤버십 화면의 디자인 결정을 적어주세요.</p>
+          </div>
+          <div class="case-screen" id="design-event">
+            <h3>이벤트</h3>
+            <div class="placeholder"></div>
+            <p>이벤트 화면의 디자인 결정을 적어주세요.</p>
+          </div>
+        </section>
+
+        <!-- 5. 그래서 어떻게 됐어? — 짧게 -->
+        <section class="case" id="result" aria-labelledby="result-title">
+          <p class="case-label">05 Launch &amp; Retrospective</p>
+          <h2 id="result-title">출시와 회고</h2>
+          <p>2인 팀 출시, 확인하려던 지표, 배운 점을 적어주세요.</p>
+        </section>
       </div>
     </div>
   </main>
