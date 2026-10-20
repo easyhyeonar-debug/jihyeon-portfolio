@@ -194,6 +194,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* ---------- Project detail ---------- */
 .project { padding: calc(var(--header-h) + 48px) 0 var(--section-y); }
+.detail .project { overflow-x: hidden; overflow-x: clip; } /* 오른쪽 끝까지 나가는 가로 스크롤 카드가 페이지를 넓히지 않게 */
 /* 상세 페이지: GNB 없이 상단 뒤로가기 버튼만 (작품에 집중) */
 .back-float {
   position: fixed; z-index: 10;
@@ -237,6 +238,43 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .case-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 32px; }
 .case-cards .placeholder { aspect-ratio: 4 / 5; margin-top: 0; }
 .case-cards img { width: 100%; height: auto; border-radius: 10px; }
+/* 가로 스크롤 큰 카드 (문제점): 화면 양끝까지 이어져서, 넘기면 카드가 화면 밖으로 흘러감 */
+.case-scroller {
+  display: flex; gap: 12px;
+  --bleed: calc((100vw - 100%) / 2);
+  margin: 32px calc(-1 * var(--bleed)) 0;
+  padding: 0 var(--bleed);
+  overflow-x: auto; overscroll-behavior-x: contain;
+  /* 스냅은 js/main.js에서 첫 카드를 글 시작선에 맞춘 뒤에 켬 (.is-snapping) */
+  scrollbar-width: none; /* 스크롤바 숨김 (넘김은 버튼·스와이프·트랙패드) */
+}
+.case-scroller::-webkit-scrollbar { display: none; }
+.case-scroller { align-items: flex-start; }
+.case-scroller.is-snapping { scroll-snap-type: x mandatory; }
+.case-scroller > li { flex: 0 0 80vw; max-width: 460px; scroll-snap-align: start; }
+.case-scroller .placeholder { aspect-ratio: 1 / 1; margin: 0; border-radius: 16px; }
+/* 정사각형 카드 (정사각형 이미지면 잘리지 않음) */
+.case-scroller img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 16px; }
+
+/* 넘김 버튼: 마우스 쓰는 기기에서만 보임 (터치는 손가락으로 넘김) */
+/* 본문과 넘김 버튼을 한 줄에: 버튼 아래끝 = 본문 아래끝 */
+.case-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.case-head > div > p:last-child { margin-bottom: 0; }
+.scroller-nav { display: none; flex-shrink: 0; gap: 8px; }
+.scroller-btn {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid var(--line); color: var(--text);
+  transition: background .2s, opacity .2s;
+}
+.scroller-btn:disabled { opacity: .3; cursor: default; }
+/* 좁은 화면에선 버튼이 본문 폭을 줄이므로 744px 이상에서만 */
+@media (hover: hover) and (pointer: fine) and (min-width: 744px) {
+  .scroller-nav { display: flex; }
+  .scroller-btn:not(:disabled):hover { background: var(--thumb); }
+}
+.case-scroller:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
 /* 2×2 큰 카드 (인터뷰) */
 .case-cards--grid .placeholder { aspect-ratio: 4 / 3; }
 .case-figure { margin: 32px 0 0; }
@@ -325,6 +363,8 @@ html.paged {
   .case-list { font-size: 18px; }
   .case-cards { grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .case-cards--grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .case-scroller { gap: 16px; }
+  .case-scroller > li { flex-basis: 48vw; }
   .case-screen h3 { font-size: 20px; }
   .logo { font-size: 16px; }
   .nav-toggle { display: none; }
@@ -345,6 +385,7 @@ html.paged {
 /* ---------- lg: 1024+ 태블릿 가로 · 노트북 ---------- */
 @media (min-width: 1024px) {
   :root { --gutter: 40px; --section-y: 120px; }
+  .case-scroller > li { flex-basis: 32vw; }
   /* PC: 제목 한 줄, 40pt. 1024~1100px처럼 폭이 모자라면 한 줄에 맞게 살짝 줄어듦 */
   .hero h1 { font-size: min(40pt, calc((100vw - 2 * var(--gutter)) / 19.5)); white-space: nowrap; }
   .hero h1 br { display: none; }

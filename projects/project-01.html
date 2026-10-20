@@ -29,9 +29,17 @@
         <section class="case case-band" id="problem" aria-labelledby="problem-title">
           <p class="case-label">01 Problem</p>
           <h2 id="problem-title">작품도 배우도 늘었는데, 둘을 잇는 길은 그대로였다</h2>
-          <p>제작사로서 작품을 준비할 때마다 같은 벽에 부딪혔습니다. 이미 알려진 배우는 비싸고, 새로운 얼굴은 찾을 곳이 없었습니다.</p>
-          <p>이 문제는 제가 먼저 겪었습니다. 영화 현장에 미술소품 담당으로 참여했지만, 제작이 원활히 돌아가도록 제작실장 역할까지 도맡았습니다. 그때 처음 배우 섭외를 맡으면서, 인맥이 없으면 단역 한 명 구하기도 어렵다는 걸 알게 됐습니다. 회사 매니지먼트를 통해 연기학원을 소개받고, 직접 오디션을 보러 가고, 출연료를 하나하나 맞춰야 했습니다.</p>
-          <ul class="case-cards" aria-label="문제점 4가지">
+          <div class="case-head">
+            <div>
+              <p>제작사로서 작품을 준비할 때마다 같은 벽에 부딪혔습니다. 이미 알려진 배우는 비싸고, 새로운 얼굴은 찾을 곳이 없었습니다.</p>
+              <p>이 문제는 제가 먼저 겪었습니다. 영화 현장에 미술소품 담당으로 참여했지만, 제작이 원활히 돌아가도록 제작실장 역할까지 도맡았습니다. 그때 처음 배우 섭외를 맡으면서, 인맥이 없으면 단역 한 명 구하기도 어렵다는 걸 알게 됐습니다. 회사 매니지먼트를 통해 연기학원을 소개받고, 직접 오디션을 보러 가고, 출연료를 하나하나 맞춰야 했습니다.</p>
+            </div>
+            <div class="scroller-nav" role="group" aria-label="문제점 카드 넘기기">
+              <button type="button" class="scroller-btn" data-dir="-1" aria-label="이전 카드"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <button type="button" class="scroller-btn" data-dir="1" aria-label="다음 카드"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+          </div>
+          <ul class="case-scroller" aria-label="문제점 4가지 (옆으로 넘겨 보기)" tabindex="0">
             <li class="case-card">
               <!-- ../images/project-01/problem-01.png 로 넣고 아래 div를 img로 교체 -->
               <div class="placeholder" role="img" aria-label="문제 1 카드 이미지 자리"><span>문제 1</span></div>

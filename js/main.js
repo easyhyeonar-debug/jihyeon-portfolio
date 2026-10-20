@@ -48,6 +48,63 @@ if (backBtn) {
   });
 }
 
+// 가로 스크롤 카드: 멈추는 위치를 글 시작선에 맞춤 (양옆 여백 = 화면 밖으로 흘러가는 영역)
+document.querySelectorAll('.case-scroller').forEach((track) => {
+  const box = track.parentElement;
+  const align = () => {
+    // 글 영역 좌우 끝 ~ 화면 끝 거리 (스크롤바 폭 제외한 실제 화면 기준)
+    const r = box.getBoundingClientRect();
+    const left = Math.round(r.left);
+    const right = Math.round(document.documentElement.clientWidth - r.right);
+    Object.assign(track.style, {
+      marginLeft: `${-left}px`, marginRight: `${-right}px`,
+      paddingLeft: `${left}px`, paddingRight: `${right}px`,
+      scrollPaddingInline: `${left}px ${right}px`,
+    });
+  };
+  // 처음엔 첫 카드가 글 시작선에 맞춰지도록. 스냅이 먼저 켜져 있으면 브라우저가
+  // 엉뚱한 카드(끝 카드)에 붙여버려서, 위치를 잡은 다음 프레임에 스냅을 켠다.
+  let touched = false;
+  ['pointerdown', 'wheel', 'touchstart', 'keydown'].forEach((ev) =>
+    track.addEventListener(ev, () => (touched = true), { passive: true })
+  );
+  const reset = () => {
+    if (touched) return;
+    track.classList.remove('is-snapping');
+    align();
+    track.scrollLeft = 0;
+    setTimeout(() => track.classList.add('is-snapping'), 50);
+  };
+  reset();
+  window.addEventListener('load', reset); // 글꼴·이미지 로드로 레이아웃이 바뀐 뒤 한 번 더
+  new ResizeObserver(align).observe(box);
+});
+
+// 가로 스크롤 카드 넘김 버튼
+document.querySelectorAll('.scroller-nav').forEach((navEl) => {
+  const track = navEl.closest('.case')?.querySelector('.case-scroller');
+  if (!track) return;
+  const [prev, next] = navEl.querySelectorAll('.scroller-btn');
+  const step = () => {
+    const card = track.firstElementChild;
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    return card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+  };
+  const sync = () => {
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+  };
+  navEl.querySelectorAll('.scroller-btn').forEach((btn) =>
+    btn.addEventListener('click', () => {
+      track.dispatchEvent(new Event('pointerdown'));
+      track.scrollBy({ left: step() * Number(btn.dataset.dir), behavior: 'smooth' });
+    })
+  );
+  track.addEventListener('scroll', sync, { passive: true });
+  window.addEventListener('resize', sync);
+  sync();
+});
+
 // 섹션 페이지네이션 점 표시
 const pager = document.querySelector('.pager');
 const pages = document.querySelectorAll('.page');
