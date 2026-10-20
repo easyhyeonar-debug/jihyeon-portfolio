@@ -207,10 +207,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* 상세 페이지 대표 이미지: 화면 맨 위부터 폭 꽉 채움 */
 .project-cover { margin: 0; background: var(--thumb); }
 .project-cover img { width: 100%; height: auto; }
-.project-cover + .project { padding-top: 40px; }
+.project-cover + .project { padding-top: 64px; }
 .project h1 { font-size: clamp(30px, 7vw, 60px); line-height: 1.2; letter-spacing: -0.02em; }
 .project-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin: 20px 0 36px; color: var(--muted); font-size: 14px; }
 .project-body p { max-width: 680px; font-size: 17px; margin-bottom: 36px; }
+.overview { margin-bottom: 64px; }
+.project .overview-title { font-size: 13px; line-height: 1.6; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.overview p { margin-bottom: 0; font-size: 14px; }
+.overview p + p { margin-top: 16px; }
 .project-images { display: grid; gap: 16px; }
 .project-images .placeholder { aspect-ratio: 16 / 10; border-radius: 10px; background: var(--thumb); }
 
@@ -274,6 +278,7 @@ html.paged {
 @media (min-width: 744px) {
   :root { --header-h: 64px; --gutter: 32px; --section-y: 104px; }
   .back-float { top: 24px; left: calc(24px + var(--safe-l)); width: 48px; height: 48px; }
+  .overview p { font-size: 18px; }
   .logo { font-size: 16px; }
   .nav-toggle { display: none; }
   .nav {
