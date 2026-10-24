@@ -258,18 +258,51 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .case-scroller .placeholder { aspect-ratio: 1 / 1; margin: 0; border-radius: 16px; }
 /* 문제점 카드 (임시 텍스트 카드: 정사각형, 내용이 넘치면 세로로 늘어남) */
 .problem-card {
+  position: relative; overflow: hidden; isolation: isolate;
   display: flex; flex-direction: column; justify-content: space-between; gap: 20px;
   aspect-ratio: 1 / 1; padding: 24px; border-radius: 16px;
-  background: var(--thumb);
+  color: #fff; background: #160630;
 }
+/* 배경: 번진 보라 물결 (흐림 처리한 빛 덩어리) + 필름 노이즈 */
+.problem-card::before, .problem-card::after { content: ""; position: absolute; z-index: -1; pointer-events: none; }
+.problem-card::before {
+  inset: -30%;
+  background: var(--pc-waves);
+  filter: blur(34px);
+}
+.problem-card::after {
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: .35; mix-blend-mode: overlay;
+}
+.problem-card:nth-child(1) { --pc-waves:
+  radial-gradient(30% 18% at 78% 34%, #efe6ff 0%, transparent 100%),
+  radial-gradient(42% 26% at 64% 48%, #a78bfa 0%, transparent 100%),
+  radial-gradient(38% 30% at 36% 72%, #6d28d9 0%, transparent 100%),
+  radial-gradient(50% 40% at 18% 30%, #2e0a63 0%, transparent 100%); }
+.problem-card:nth-child(2) { --pc-waves:
+  radial-gradient(26% 32% at 70% 62%, #e9ddff 0%, transparent 100%),
+  radial-gradient(44% 24% at 52% 40%, #8b5cf6 0%, transparent 100%),
+  radial-gradient(36% 30% at 86% 18%, #5b21b6 0%, transparent 100%),
+  radial-gradient(50% 40% at 22% 80%, #24074f 0%, transparent 100%); }
+.problem-card:nth-child(3) { --pc-waves:
+  radial-gradient(34% 16% at 66% 54%, #f3ecff 0%, transparent 100%),
+  radial-gradient(40% 30% at 82% 72%, #9f7aea 0%, transparent 100%),
+  radial-gradient(46% 26% at 40% 30%, #7c3aed 0%, transparent 100%),
+  radial-gradient(44% 40% at 14% 86%, #1f0645 0%, transparent 100%); }
+.problem-card:nth-child(4) { --pc-waves:
+  radial-gradient(24% 30% at 74% 44%, #ede4ff 0%, transparent 100%),
+  radial-gradient(46% 22% at 58% 66%, #a855f7 0%, transparent 100%),
+  radial-gradient(40% 34% at 30% 22%, #6b21a8 0%, transparent 100%),
+  radial-gradient(48% 40% at 20% 88%, #2a0b52 0%, transparent 100%); }
 .project-body .case .problem-card p { max-width: none; font-size: 13px; line-height: 1.6; }
-.project-body .case .problem-card .pc-label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--muted); }
-.problem-card .pc-title { margin: 8px 0 10px; font-size: 18px; line-height: 1.4; font-weight: 700; }
-.project-body .case .problem-card .pc-desc { color: var(--muted); }
-.project-body .case .problem-card .pc-stat strong { display: block; font-size: 24px; line-height: 1.3; font-weight: 700; color: var(--text); }
-.project-body .case .problem-card .pc-sub,
-.project-body .case .problem-card .pc-source { margin-top: 8px; font-size: 11px; color: var(--muted); }
-.project-body .case .problem-card .pc-quote { font-size: 18px; font-weight: 600; line-height: 1.5; }
+.project-body .case .problem-card .pc-label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: rgba(255, 255, 255, .7); }
+.problem-card .pc-title { margin: 8px 0 10px; font-size: 18px; line-height: 1.4; font-weight: 700; color: #fff; }
+.project-body .case .problem-card .pc-desc { color: rgba(255, 255, 255, .8); }
+.project-body .case .problem-card .pc-stat { color: rgba(255, 255, 255, .8); }
+.project-body .case .problem-card .pc-stat strong { display: block; font-size: 24px; line-height: 1.3; font-weight: 700; color: #fff; }
+.project-body .case .problem-card .pc-source { margin-top: 8px; font-size: 11px; color: rgba(255, 255, 255, .6); }
+.project-body .case .problem-card .pc-quote { font-size: 18px; font-weight: 600; line-height: 1.5; color: #fff; }
 
 /* 정사각형 카드 (정사각형 이미지면 잘리지 않음) */
 .case-scroller img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 16px; }
