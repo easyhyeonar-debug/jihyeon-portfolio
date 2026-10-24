@@ -534,5 +534,20 @@ void main() {
     gate();
   }
 
-  document.querySelectorAll(".wordmark").forEach(mount);
+  // 설정한 서체(Montserrat)가 받아진 뒤에 그리기 시작해서, 첫 화면에 기본 서체가 보이지 않게 함.
+  // 네트워크가 느리면 최대 3초만 기다리고 그대로 시작.
+  const fontReady = () => {
+    if (!document.fonts || !document.fonts.load) return Promise.resolve();
+    const f = OPTIONS.font;
+    const wait = document.fonts.load(fontString(f, 64), "PORTFOLIO").catch(() => {});
+    return Promise.race([wait, new Promise((r) => setTimeout(r, 3000))]);
+  };
+
+  const hosts = document.querySelectorAll(".wordmark");
+  fontReady().then(() =>
+    hosts.forEach((host) => {
+      mount(host);
+      requestAnimationFrame(() => host.classList.add("is-ready"));
+    })
+  );
 })();

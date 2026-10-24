@@ -124,6 +124,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   -webkit-user-select: none;
 }
 .wordmark-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+/* 서체가 준비되면 부드럽게 나타남 (js/wordmark.js가 .is-ready를 붙임) */
+.wordmark > * { opacity: 0; transition: opacity .5s ease; }
+.wordmark.is-ready > *, .wordmark.is-fallback { opacity: 1; }
 .wordmark-label {
   position: absolute; left: 0; top: 0;
   pointer-events: none; white-space: nowrap;
