@@ -19,16 +19,27 @@
   <main class="project">
     <div class="container">
       <div class="project-body">
-        <section class="overview" aria-labelledby="overview-title">
+        <nav class="case-toc" aria-label="목차">
+          <ol>
+            <li><a href="#overview"><span class="toc-num">00</span><span class="toc-en">Overview</span><span class="toc-ko">개요</span></a></li>
+            <li><a href="#research"><span class="toc-num">01</span><span class="toc-en">Desk Research</span><span class="toc-ko">데스크 리서치</span></a></li>
+            <li><a href="#insight"><span class="toc-num">02</span><span class="toc-en">Insight</span><span class="toc-ko">인사이트</span></a></li>
+            <li><a href="#strategy"><span class="toc-num">03</span><span class="toc-en">Strategy</span><span class="toc-ko">전략과 구조</span></a></li>
+            <li><a href="#design"><span class="toc-num">04</span><span class="toc-en">Design</span><span class="toc-ko">디자인 결정</span></a></li>
+            <li><a href="#result"><span class="toc-num">05</span><span class="toc-en">Launch</span><span class="toc-ko">출시와 회고</span></a></li>
+          </ol>
+        </nav>
+
+        <section class="overview" id="overview" aria-labelledby="overview-title">
           <h1 id="overview-title" class="overview-title">Overview</h1>
           <p>제작사였던 회사는 새로운 배우를 찾기 어려웠고, 배우들은 오디션 정보를 얻기 어려웠습니다. 그래서 배우가 오디션에 지원할수록, 제작사가 찾아볼 수 있는 배우 DB도 함께 쌓이는 구조를 만들고자 했습니다.</p>
           <p>진행 중인 오디션을 한곳에 모은 캐스팅 앱을 기획부터 디자인까지 맡아, 개발자 1명과 함께 iOS와 Android에 출시했습니다.</p>
         </section>
 
         <!-- 1. 왜 만들었어? — 짧게 -->
-        <section class="case case-band" id="problem" aria-labelledby="problem-title">
-          <p class="case-label">01 Problem</p>
-          <h2 id="problem-title">작품도 배우도 늘었는데, 둘을 잇는 길은 그대로였다</h2>
+        <section class="case case-band" id="research" aria-labelledby="research-title">
+          <p class="case-label">01 Desk Research</p>
+          <h2 id="research-title">작품도 배우도 늘었는데, 둘을 잇는 길은 그대로였다</h2>
           <div class="case-head">
             <div>
               <p>제작사로서 작품을 준비할 때마다 같은 벽에 부딪혔습니다. 이미 알려진 배우는 비싸고, 새로운 얼굴은 찾을 곳이 없었습니다.</p>
@@ -90,27 +101,105 @@
           <p class="case-note">* 검증: [사내 매니저 검토 결과가 오면 채울 자리]</p>
 
 
-          <div class="persona-grid" aria-label="신인 배우와 경력 배우 비교">
-            <article class="persona">
-              <h3 class="persona-name">신인 배우</h3>
-              <p class="persona-quote">“어디서든 불러주면 감사하지만, 디렉터에게만 보여주고 싶어요”</p>
-              <dl class="persona-facts">
-              <div><dt>정보 경로</dt><dd>학원·지인</dd></div>
-              <div><dt>지원 기준</dt><dd>배역 비중</dd></div>
-              <div><dt>알고 싶은 것</dt><dd>지원자 수·주연</dd></div>
-              <div><dt>피하고 싶은 시선</dt><dd>동료 배우</dd></div>
-              </dl>
-            </article>
-            <article class="persona">
-              <h3 class="persona-name">경력 배우</h3>
-              <p class="persona-quote">“이미지가 중요해서, 말 한마디도 파급력이 있어요”</p>
-              <dl class="persona-facts">
-              <div><dt>정보 경로</dt><dd>소속사·매니저</dd></div>
-              <div><dt>지원 기준</dt><dd>작품성·감독</dd></div>
-              <div><dt>알고 싶은 것</dt><dd>몇 부작·경쟁 배우</dd></div>
-              <div><dt>피하고 싶은 시선</dt><dd>대중·업계</dd></div>
-              </dl>
-            </article>
+          <div class="insight-board">
+            <div class="insight-context">
+              <div class="ctx"><p class="ctx-label">인터뷰 목적</p><p>[인터뷰 목적을 적어주세요]</p></div>
+              <div class="ctx"><p class="ctx-label">인터뷰 질문</p><p>[주요 질문을 적어주세요]</p></div>
+              <div class="ctx"><p class="ctx-label">진행 방식</p><p>[진행 방식을 적어주세요]</p></div>
+            </div>
+
+            <div class="persona-grid" aria-label="신인 배우, 경력 배우, 소속사 대표 비교">
+              <article class="persona">
+                <header class="persona-head">
+                  <!-- 아바타 이미지: <img src="../images/project-01/persona-xx.png" alt=""> 로 교체 -->
+                  <div class="persona-avatar" aria-hidden="true"><svg viewBox="0 0 48 48" width="40" height="40"><circle cx="24" cy="18" r="9" fill="currentColor"/><path d="M8 42c2-9 9-13 16-13s14 4 16 13" fill="currentColor"/></svg></div>
+                  <div>
+                    <h3 class="persona-tag">신인 배우</h3>
+                    <p class="persona-quote">“어디서든 불러주면 감사하지만, 디렉터에게만 보여주고 싶어요”</p>
+                  </div>
+                </header>
+                <dl class="persona-facts">
+                  <div><dt>정보 경로</dt><dd>학원·지인</dd></div>
+                  <div><dt>지원 기준</dt><dd>배역 비중</dd></div>
+                  <div><dt>알고 싶은 것</dt><dd>지원자 수·주연</dd></div>
+                  <div><dt>피하고 싶은 시선</dt><dd>동료 배우</dd></div>
+                </dl>
+              </article>
+              <article class="persona">
+                <header class="persona-head">
+                  <!-- 아바타 이미지: <img src="../images/project-01/persona-xx.png" alt=""> 로 교체 -->
+                  <div class="persona-avatar" aria-hidden="true"><svg viewBox="0 0 48 48" width="40" height="40"><circle cx="24" cy="18" r="9" fill="currentColor"/><path d="M8 42c2-9 9-13 16-13s14 4 16 13" fill="currentColor"/></svg></div>
+                  <div>
+                    <h3 class="persona-tag">경력 배우</h3>
+                    <p class="persona-quote">“이미지가 중요해서, 말 한마디도 파급력이 있어요”</p>
+                  </div>
+                </header>
+                <dl class="persona-facts">
+                  <div><dt>정보 경로</dt><dd>소속사·매니저</dd></div>
+                  <div><dt>지원 기준</dt><dd>작품성·감독</dd></div>
+                  <div><dt>알고 싶은 것</dt><dd>몇 부작·경쟁 배우</dd></div>
+                  <div><dt>피하고 싶은 시선</dt><dd>대중·업계</dd></div>
+                </dl>
+              </article>
+              <article class="persona">
+                <header class="persona-head">
+                  <!-- 아바타 이미지: <img src="../images/project-01/persona-xx.png" alt=""> 로 교체 -->
+                  <div class="persona-avatar" aria-hidden="true"><svg viewBox="0 0 48 48" width="40" height="40"><circle cx="24" cy="18" r="9" fill="currentColor"/><path d="M8 42c2-9 9-13 16-13s14 4 16 13" fill="currentColor"/></svg></div>
+                  <div>
+                    <h3 class="persona-tag">소속사 대표</h3>
+                    <p class="persona-quote">“[소속사 대표의 한마디를 적어주세요]”</p>
+                  </div>
+                </header>
+                <dl class="persona-facts">
+                  <div><dt>정보 경로</dt><dd>[채울 자리]</dd></div>
+                  <div><dt>캐스팅 기준</dt><dd>[채울 자리]</dd></div>
+                  <div><dt>알고 싶은 것</dt><dd>[채울 자리]</dd></div>
+                  <div><dt>피하고 싶은 것</dt><dd>[채울 자리]</dd></div>
+                </dl>
+              </article>
+            </div>
+
+            <dl class="insight-foot">
+              <div><dt>대상 선정</dt><dd>[선정 기준을 적어주세요]</dd></div>
+              <div><dt>참가자 구성</dt><dd>[참가자 구성을 적어주세요]</dd></div>
+            </dl>
+          </div>
+
+          <!-- 초기 가설 vs 인터뷰 결과 -->
+          <div class="hypo">
+            <div class="hypo-head">
+              <p class="hypo-eyebrow">가설 검증</p>
+              <h3 class="hypo-title">초기 가설과는 다른 이유로 지원을 망설이고 있었어요.</h3>
+              <p class="hypo-sub">[초기 가설과 인터뷰 결과를 한두 줄로 요약해주세요. 예: 처음엔 오디션 정보가 부족해서라고 생각했지만, 실제로는 프로필이 드러나는 부담이 더 컸어요.]</p>
+            </div>
+
+            <div class="hypo-cards">
+              <section class="hypo-card" aria-label="초기 가설">
+                <h4 class="hypo-q">Q. [초기 가설 질문을 적어주세요]</h4>
+                <p class="hypo-meta">[조사명] 00명, 00.00.00 - 00.00</p>
+                <ul class="hypo-chips">
+                  <li>[응답 1]</li>
+                  <li class="is-key">[응답 2]</li>
+                  <li class="is-key">[응답 3]</li>
+                  <li class="is-key">[응답 4]</li>
+                </ul>
+              </section>
+              <section class="hypo-card" aria-label="인터뷰 결과">
+                <h4 class="hypo-q">Q. [인터뷰 질문을 적어주세요]</h4>
+                <p class="hypo-meta">[조사명] 00명, 00.00.00 - 00.00</p>
+                <ul class="hypo-results">
+                  <li class="is-key"><div><b>[주요 응답]</b><span>[설명]</span></div><strong>00<small>%</small></strong></li>
+                  <li><div><b>[두 번째 응답]</b><span>[설명]</span></div><strong>00<small>%</small></strong></li>
+                </ul>
+              </section>
+            </div>
+
+            <div class="hypo-banner">
+              <span class="hypo-pill">수정 가설</span>
+              <p>신인 배우는 <em>기회를 원하지만 동료에게 드러나는 것이 부담</em>스럽고</p>
+              <span class="hypo-divider" aria-hidden="true"></span>
+              <p>경력 배우는 <em>쌓아 온 이미지에 영향을 줄까</em> 노출을 꺼린다</p>
+            </div>
           </div>
         </section>
 
@@ -139,6 +228,137 @@
         <section class="case" id="design" aria-labelledby="design-title">
           <p class="case-label">04 Design Decisions</p>
           <h2 id="design-title">디자인 결정</h2>
+
+          <h3 class="case-subtitle">정보는 활짝 열고, 나는 원하는 만큼만 보여준다</h3>
+          <ul class="ab-grid" aria-label="기존 방식과 캐스팅플레이스 비교">
+            <li class="ab-col">
+              <div class="ab-card ab-asis">
+                <span class="ab-pill">As-Is</span>
+                <p class="ab-text">오디션 정보가 소속사·인맥 안에서만 돌아<br>신인은 기회가 있는지도 모름</p>
+                <p class="ab-tags">#정보 폐쇄 #기회 불평등</p>
+                <span class="ab-dot" aria-hidden="true"></span>
+              </div>
+              <span class="ab-line" aria-hidden="true"></span>
+              <div class="ab-card ab-tobe">
+                <span class="ab-pill">To-Be</span>
+                <!-- 3D 아이콘: <img src="../images/project-01/tobe-xx.png" alt=""> 로 교체 -->
+                <div class="ab-icon" role="img" aria-label="홈 아이콘 자리"><span>홈 아이콘</span></div>
+                <h4 class="ab-title">진행 중인 오디션을 한곳에</h4>
+                <p class="ab-desc">소속사가 없어도 지금 열린 오디션을<br>바로 확인하고 지원할 수 있는 홈</p>
+                <p class="ab-tags">#정보 개방 #누구나 지원</p>
+              </div>
+            </li>
+            <li class="ab-col">
+              <div class="ab-card ab-asis">
+                <span class="ab-pill">As-Is</span>
+                <p class="ab-text">지원하면 프로필과 활동이 드러나<br>동료와 업계의 시선이 부담</p>
+                <p class="ab-tags">#노출 부담 #이미지 관리</p>
+                <span class="ab-dot" aria-hidden="true"></span>
+              </div>
+              <span class="ab-line" aria-hidden="true"></span>
+              <div class="ab-card ab-tobe">
+                <span class="ab-pill">To-Be</span>
+                <!-- 3D 아이콘: <img src="../images/project-01/tobe-xx.png" alt=""> 로 교체 -->
+                <div class="ab-icon" role="img" aria-label="프로필 아이콘 자리"><span>프로필 아이콘</span></div>
+                <h4 class="ab-title">보여줄 만큼만 보여주는 프로필</h4>
+                <p class="ab-desc">[실제 기능에 맞게 수정] 공개 범위를 직접 정해<br>원하는 곳에만 프로필을 보여줌</p>
+                <p class="ab-tags">#노출 부담 완화 #원하는 만큼만</p>
+              </div>
+            </li>
+            <li class="ab-col">
+              <div class="ab-card ab-asis">
+                <span class="ab-pill">As-Is</span>
+                <p class="ab-text">제작사는 추천받은 배우에만 의존하고<br>지원자를 비교할 기준이 없음</p>
+                <p class="ab-tags">#발굴 한계 #추천 의존</p>
+                <span class="ab-dot" aria-hidden="true"></span>
+              </div>
+              <span class="ab-line" aria-hidden="true"></span>
+              <div class="ab-card ab-tobe">
+                <span class="ab-pill">To-Be</span>
+                <!-- 3D 아이콘: <img src="../images/project-01/tobe-xx.png" alt=""> 로 교체 -->
+                <div class="ab-icon" role="img" aria-label="어드민 아이콘 자리"><span>어드민 아이콘</span></div>
+                <h4 class="ab-title">같은 기준으로 비교하는 어드민</h4>
+                <p class="ab-desc">정해진 형식의 프로필로 지원자를 비교하고<br>지원할수록 배우 DB가 쌓임</p>
+                <p class="ab-tags">#신인 발굴 #배우 DB</p>
+              </div>
+            </li>
+          </ul>
+
+          <h3 class="case-subtitle">디자인 시스템</h3>
+          <p class="case-note">* 서체·크기·색상 값은 실제 앱 값으로 수정해주세요. (보라색은 캐플 메인 이미지에서 뽑은 값)</p>
+          <div class="ds">
+            <div class="ds-row">
+              <section class="ds-panel" aria-label="타이포그래피">
+                <p class="ds-heading">Typography</p>
+                <p class="ds-font">Pretendard<br>프리텐다드</p>
+                <p class="ds-weights"><b style="font-weight:800">ExtraBold</b> / <b style="font-weight:700">Bold</b> / <span style="font-weight:500">Medium</span> / <span>Regular</span> / <span style="font-weight:300">Light</span></p>
+                <p class="ds-group">Headline</p>
+                <div class="ds-type-row"><span class="ds-code">H1</span><span class="ds-sample" style="font-weight:700;font-size:22px">배우와 작품을 바로 잇다</span><span class="ds-spec">Bold / 22pt / 140% / -1%</span></div>
+                <div class="ds-type-row"><span class="ds-code">H2</span><span class="ds-sample" style="font-weight:700;font-size:20px">배우와 작품을 바로 잇다</span><span class="ds-spec">Bold / 20pt / 140% / -1%</span></div>
+                <p class="ds-group">Title</p>
+                <div class="ds-type-row"><span class="ds-code">T1</span><span class="ds-sample" style="font-weight:800;font-size:17px">배우와 작품을 바로 잇다</span><span class="ds-spec">ExtraBold / 17pt / 140% / -1%</span></div>
+                <div class="ds-type-row"><span class="ds-code">T2</span><span class="ds-sample" style="font-weight:700;font-size:15px">배우와 작품을 바로 잇다</span><span class="ds-spec">Bold / 15pt / 140% / -1%</span></div>
+                <p class="ds-group">Body</p>
+                <div class="ds-type-row"><span class="ds-code">B1</span><span class="ds-sample" style="font-weight:400;font-size:16px">배우와 작품을 바로 잇다</span><span class="ds-spec">Regular / 16pt / 150% / -1%</span></div>
+                <div class="ds-type-row"><span class="ds-code">B2</span><span class="ds-sample" style="font-weight:500;font-size:14px">배우와 작품을 바로 잇다</span><span class="ds-spec">Medium / 14pt / 150% / -1%</span></div>
+                <p class="ds-group">Caption</p>
+                <div class="ds-type-row"><span class="ds-code">C1</span><span class="ds-sample" style="font-weight:400;font-size:12px">배우와 작품을 바로 잇다</span><span class="ds-spec">Regular / 12pt / 130%</span></div>
+                <div class="ds-type-row"><span class="ds-code">C2</span><span class="ds-sample" style="font-weight:300;font-size:11px">배우와 작품을 바로 잇다</span><span class="ds-spec">Light / 11pt / 130%</span></div>
+              </section>
+              <section class="ds-panel ds-panel--colors" aria-label="색상">
+                <p class="ds-heading">Colors</p>
+                <div class="ds-colors">
+                  <div class="ds-col-main">
+                  <div class="ds-swatch ds-swatch--0" style="background:#7000B6;color:#fff"><b>CAPL Purple</b><span>Primary #7000B6</span></div>
+                  <div class="ds-swatch ds-swatch--1" style="background:#0D0D0D;color:#fff"><b>Black</b><span>Background #0D0D0D</span></div>
+                  <div class="ds-swatch ds-swatch--2" style="background:#B48CFF;color:#111"><b>Lavender</b><span>Secondary #B48CFF</span></div>
+                  <div class="ds-swatch ds-swatch--3" style="background:#22C55E;color:#fff"><b>Green</b><span>Success #22C55E</span></div>
+                  <div class="ds-swatch ds-swatch--4" style="background:#EF4444;color:#fff"><b>Red</b><span>Error #EF4444</span></div>
+                  </div>
+                  <div class="ds-col-gray">
+                  <div class="ds-swatch" style="background:#FFFFFF;color:#111"><b>White</b><span>#FFFFFF</span></div>
+                  <div class="ds-swatch" style="background:#F2F2F2;color:#111"><b>Gray 10</b><span>#F2F2F2</span></div>
+                  <div class="ds-swatch" style="background:#DADADA;color:#111"><b>Gray 20</b><span>#DADADA</span></div>
+                  <div class="ds-swatch" style="background:#B8B8B8;color:#111"><b>Gray 30</b><span>#B8B8B8</span></div>
+                  <div class="ds-swatch" style="background:#999999;color:#111"><b>Gray 40</b><span>#999999</span></div>
+                  <div class="ds-swatch" style="background:#7A7A7A;color:#fff"><b>Gray 50</b><span>#7A7A7A</span></div>
+                  <div class="ds-swatch" style="background:#5C5C5C;color:#fff"><b>Gray 60</b><span>#5C5C5C</span></div>
+                  <div class="ds-swatch" style="background:#3D3D3D;color:#fff"><b>Gray 70</b><span>#3D3D3D</span></div>
+                  <div class="ds-swatch" style="background:#2A2A2A;color:#fff"><b>Gray 80</b><span>#2A2A2A</span></div>
+                  <div class="ds-swatch" style="background:#1A1A1A;color:#fff"><b>Gray 90</b><span>#1A1A1A</span></div>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <section class="ds-panel" aria-label="아이콘과 컴포넌트">
+              <p class="ds-heading">Icons &amp; Components</p>
+              <div class="ds-components">
+                <div class="ds-box ds-box--icons">
+                  <p class="ds-box-label">Icons</p>
+                  <div class="ds-nav"><span class="ds-nav-item is-active"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><em>홈</em></span><span class="ds-nav-item"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg><em>오디션</em></span><span class="ds-nav-item"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/></svg><em>커뮤니티</em></span><span class="ds-nav-item"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><em>알림</em></span><span class="ds-nav-item"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg><em>마이</em></span></div>
+                  <div class="ds-icons"><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg></span><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg></span><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></span><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg></span></div>
+                </div>
+                <div class="ds-box">
+                  <p class="ds-box-label">Badge</p>
+                  <div class="ds-badges"><span class="ds-badge">상업영화</span><span class="ds-badge">독립영화</span><span class="ds-badge ds-badge--line">웹드라마</span><span class="ds-badge ds-badge--hot">마감임박</span><span class="ds-badge ds-badge--new">NEW</span></div>
+                </div>
+                <div class="ds-box">
+                  <p class="ds-box-label">Button</p>
+                  <div class="ds-buttons"><span class="ds-btn">지원하기</span><span class="ds-btn ds-btn--ghost">관심 등록</span><span class="ds-btn ds-btn--off">마감</span></div>
+                </div>
+                <div class="ds-box">
+                  <p class="ds-box-label">Bottom Sheet</p>
+                  <div class="ds-sheet"><span class="ds-sheet-grip"></span><span class="ds-sheet-item"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg> 프로필 공개 범위</span></div>
+                </div>
+                <div class="ds-box">
+                  <p class="ds-box-label">Toast</p>
+                  <div class="ds-toasts"><span class="ds-toast">지원이 완료됐어요 <b>보기</b></span><span class="ds-toast ds-toast--ok"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg> 프로필이 저장됐어요</span></div>
+                </div>
+              </div>
+            </section>
+          </div>
+
           <p>화면 흐름 전체에 대한 설명을 적어주세요. (홈 → 프로필 → 커뮤니티 → 멤버십 → 이벤트)</p>
           <div class="case-screen" id="design-home">
             <h3>홈</h3>
