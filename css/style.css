@@ -497,6 +497,55 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .project-body .case .hypo-banner p { font-size: 18px; }
 }
 
+/* 03 전략: 강점 카드 */
+.str-cards { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+.str-card { padding: 24px; border-radius: 14px; background: var(--surface); }
+.project-body .case .str-card p { max-width: none; }
+.project-body .case .str-num { font-size: 12px; font-weight: 700; color: #a78bfa; letter-spacing: 0.04em; }
+.str-card h4 { margin: 8px 0 10px; font-size: 17px; font-weight: 700; line-height: 1.4; }
+.project-body .case .str-card p:last-child { font-size: 14px; color: var(--muted); }
+
+/* 03 전략: 서비스 구조 (배우 앱 → 프로필 → 어드민) */
+.flow { display: grid; grid-template-columns: 1fr; justify-items: stretch; gap: 8px; margin-top: 32px; }
+.flow-node { padding: 24px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); text-align: center; }
+.flow-node--hub { background: linear-gradient(160deg, #7c3aed, #4c1d95); border-color: transparent; color: #fff; }
+.project-body .case .flow-tag { max-width: none; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #a78bfa; }
+.project-body .case .flow-node--hub .flow-tag { color: #e9ddff; }
+.flow-node h4 { margin: 6px 0 12px; font-size: 20px; font-weight: 700; }
+.flow-node ul { list-style: none; display: grid; gap: 4px; font-size: 14px; line-height: 1.6; color: var(--muted); }
+.flow-node--hub ul { color: rgba(255, 255, 255, .85); }
+.flow-arrow { justify-self: center; display: grid; place-items: center; color: #a78bfa; transform: rotate(90deg); }
+
+/* 03 전략: 선순환 고리 */
+.loop {
+  display: grid; gap: 10px; margin-top: 32px; align-items: center;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "a ab b" "da hub bc" "d cd c";
+}
+.loop-node { display: grid; gap: 4px; padding: 16px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); text-align: center; }
+.loop-node b { font-size: 15px; }
+.loop-node span { font-size: 12px; line-height: 1.5; color: var(--muted); }
+.loop-node--key { border-color: rgba(167, 139, 250, .7); background: rgba(124, 58, 237, .14); }
+.loop-node--key b { color: #c4b5fd; }
+.loop-a { grid-area: a; } .loop-b { grid-area: b; } .loop-c { grid-area: c; } .loop-d { grid-area: d; }
+.loop-ab { grid-area: ab; } .loop-bc { grid-area: bc; } .loop-cd { grid-area: cd; } .loop-da { grid-area: da; }
+.loop-arrow { justify-self: center; font-size: 20px; font-weight: 700; color: #a78bfa; }
+.loop-hub { grid-area: hub; display: grid; place-items: center; width: 84px; height: 84px; border-radius: 50%; background: linear-gradient(160deg, #7c3aed, #4c1d95); color: #fff; text-align: center; font-size: 12px; font-weight: 700; line-height: 1.4; }
+@media (min-width: 744px) {
+  .str-cards { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .str-card { padding: 32px; }
+  .str-card h4 { font-size: 20px; }
+  .project-body .case .str-card p:last-child { font-size: 16px; }
+  .flow { grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; gap: 16px; }
+  .flow-arrow { transform: none; }
+  .flow-node { padding: 32px 24px; }
+  .loop { max-width: 760px; margin-left: auto; margin-right: auto; gap: 16px 24px; }
+  .loop-node { padding: 24px; }
+  .loop-node b { font-size: 18px; }
+  .loop-node span { font-size: 14px; }
+  .loop-hub { width: 120px; height: 120px; font-size: 15px; }
+}
+
 .case-screen { margin-top: 48px; }
 .case-screen h3 { font-size: 16px; font-weight: 600; }
 .case-screen .placeholder { margin: 12px 0 16px; }
