@@ -363,6 +363,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .ctx { padding: 20px 24px; border-radius: 14px; background: var(--surface); }
 .project-body .case .ctx p { max-width: none; font-size: 14px; }
 .project-body .case .ctx .ctx-label { margin-bottom: 8px; font-weight: 700; color: var(--accent-strong); }
+.ctx-list { display: grid; gap: 6px; list-style: none; font-size: 14px; line-height: 1.6; }
+.ctx-list li { position: relative; padding-left: 14px; }
+.ctx-list li::before { content: ""; position: absolute; left: 0; top: .7em; width: 4px; height: 4px; border-radius: 50%; background: var(--accent-strong); }
 .persona-head { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
 .persona-avatar {
   flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%; overflow: hidden;
@@ -725,7 +728,7 @@ html.paged {
   .insight-context { grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .persona-avatar { width: 96px; height: 96px; }
   .project-body .case .persona-quote { font-size: 20px; }
-  .project-body .case .ctx p { font-size: 15px; }
+  .project-body .case .ctx p, .ctx-list { font-size: 15px; }
   .case-scroller { gap: 16px; }
   .case-scroller > li { flex-basis: 48vw; }
   .case-screen h3 { font-size: 28px; }
@@ -784,6 +787,21 @@ html.paged {
   .hero h1 { font-size: clamp(28px, 5vw, 40px); }
   .nav { max-height: calc(100vh - var(--header-h)); overflow-y: auto; }
 }
+
+/* 스크롤 등장 인터랙션 (JS가 .reveal을 붙일 때만 동작) */
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity .7s cubic-bezier(.2, .7, .2, 1), transform .7s cubic-bezier(.2, .7, .2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+/* 가로 스크롤 카드: 줄 전체가 올라오고 카드는 차례로 나타남 */
+.case-scroller.reveal > li { opacity: 0; transition: opacity .6s ease; }
+.case-scroller.reveal.is-in > li { opacity: 1; }
+.case-scroller.reveal.is-in > li:nth-child(2) { transition-delay: .1s; }
+.case-scroller.reveal.is-in > li:nth-child(3) { transition-delay: .2s; }
+.case-scroller.reveal.is-in > li:nth-child(n+4) { transition-delay: .3s; }
+@media print { .reveal, .case-scroller.reveal > li { opacity: 1 !important; transform: none !important; } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

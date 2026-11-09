@@ -140,3 +140,34 @@ if (pager && pages.length) {
 // 푸터 연도
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
+
+// 스크롤 등장 인터랙션: 요소가 화면에 들어오면 아래에서 위로 올라오며 나타남
+(() => {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // 묶음 요소는 통째로 말고 안쪽 항목을 하나씩 올림
+  const GROUP = '.overview-body, .insight-board, .insight-context, .verify, .verify-list, .hypo, .hypo-cards, .hypo-change, .hypo-shifts, .str-cards, .ab-grid, .ds, .grid, .about';
+  const targets = [];
+  const collect = (el) => {
+    [...el.children].forEach((child) => {
+      if (child.matches('script, style, br')) return;
+      if (child.matches(GROUP)) collect(child);
+      else targets.push(child);
+    });
+  };
+  document.querySelectorAll('.project-cover').forEach((el) => targets.push(el));
+  document.querySelectorAll('.project-body .overview, .project-body .case, .page:not(.hero) > .container').forEach(collect);
+  if (!targets.length) return;
+
+  targets.forEach((el) => el.classList.add('reveal'));
+  const io = new IntersectionObserver((entries) => {
+    // 같은 순간 함께 들어온 요소는 순서대로 조금씩 늦게
+    entries.filter((e) => e.isIntersecting).forEach((e, i) => {
+      e.target.style.setProperty('--reveal-delay', `${Math.min(i, 5) * 80}ms`);
+      e.target.classList.add('is-in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach((el) => io.observe(el));
+})();
