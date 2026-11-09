@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>프로젝트 01 — 이지현 포트폴리오</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="../css/style.css?v=20261109p">
+  <link rel="stylesheet" href="../css/style.css?v=20261109q">
 </head>
 <body class="detail">
   <a href="../index.html#work" class="back-float" aria-label="작업 목록으로 돌아가기">
@@ -130,7 +130,6 @@
           <p class="case-label">02 Insight</p>
           <h2 id="insight-title">배우는 기회를 원하지만, 노출은 꺼린다</h2>
           <p>이후에 회사 매니지먼트 소속 배우들과 매니저들의 이야기를 가까이서 들었고, 그 과정에서 붙잡아야 할 지점이 보였습니다. 배우들은 더 많은 오디션 정보를 원하면서도, 프로필과 오디션 활동이 드러나는 것은 조심스러워했습니다. 신인은 알려지고 싶어 했고, 경력 배우는 맡아온 배역 이미지를 지키고 싶어 했습니다.</p>
-          <p class="case-note">* 검증: [사내 매니저 검토 결과가 오면 채울 자리]</p>
 
 
           <div class="insight-board">
@@ -140,56 +139,76 @@
               <div class="ctx"><p class="ctx-label">진행 방식</p><p>[진행 방식을 적어주세요]</p></div>
             </div>
 
-            <div class="persona-grid" aria-label="신인 배우, 경력 배우, 소속사 대표 비교">
-              <article class="persona">
-                <header class="persona-head">
-                  <!-- 아바타 이미지: <img src="../images/project-01/persona-xx.png" alt=""> 로 교체 -->
-                  <div class="persona-avatar" aria-hidden="true"><svg viewBox="0 0 48 48" width="40" height="40"><circle cx="24" cy="18" r="9" fill="currentColor"/><path d="M8 42c2-9 9-13 16-13s14 4 16 13" fill="currentColor"/></svg></div>
-                  <div>
-                    <h3 class="persona-tag">신인 배우</h3>
-                    <p class="persona-quote">“어디서든 불러주면 감사하지만, 디렉터에게만 보여주고 싶어요”</p>
-                  </div>
-                </header>
-                <dl class="persona-facts">
-                  <div><dt>정보 경로</dt><dd>학원·지인</dd></div>
-                  <div><dt>지원 기준</dt><dd>배역 비중</dd></div>
-                  <div><dt>알고 싶은 것</dt><dd>지원자 수·주연</dd></div>
-                  <div><dt>피하고 싶은 시선</dt><dd>동료 배우</dd></div>
-                </dl>
-              </article>
-              <article class="persona">
-                <header class="persona-head">
-                  <!-- 아바타 이미지: <img src="../images/project-01/persona-xx.png" alt=""> 로 교체 -->
-                  <div class="persona-avatar" aria-hidden="true"><svg viewBox="0 0 48 48" width="40" height="40"><circle cx="24" cy="18" r="9" fill="currentColor"/><path d="M8 42c2-9 9-13 16-13s14 4 16 13" fill="currentColor"/></svg></div>
-                  <div>
-                    <h3 class="persona-tag">경력 배우</h3>
-                    <p class="persona-quote">“이미지가 중요해서, 말 한마디도 파급력이 있어요”</p>
-                  </div>
-                </header>
-                <dl class="persona-facts">
-                  <div><dt>정보 경로</dt><dd>소속사·매니저</dd></div>
-                  <div><dt>지원 기준</dt><dd>작품성·감독</dd></div>
-                  <div><dt>알고 싶은 것</dt><dd>몇 부작·경쟁 배우</dd></div>
-                  <div><dt>피하고 싶은 시선</dt><dd>대중·업계</dd></div>
-                </dl>
-              </article>
-              <article class="persona">
-                <header class="persona-head">
-                  <!-- 아바타 이미지: <img src="../images/project-01/persona-xx.png" alt=""> 로 교체 -->
-                  <div class="persona-avatar" aria-hidden="true"><svg viewBox="0 0 48 48" width="40" height="40"><circle cx="24" cy="18" r="9" fill="currentColor"/><path d="M8 42c2-9 9-13 16-13s14 4 16 13" fill="currentColor"/></svg></div>
-                  <div>
-                    <h3 class="persona-tag">소속사 대표</h3>
-                    <p class="persona-quote">“[소속사 대표의 한마디를 적어주세요]”</p>
-                  </div>
-                </header>
-                <dl class="persona-facts">
-                  <div><dt>정보 경로</dt><dd>[채울 자리]</dd></div>
-                  <div><dt>캐스팅 기준</dt><dd>[채울 자리]</dd></div>
-                  <div><dt>알고 싶은 것</dt><dd>[채울 자리]</dd></div>
-                  <div><dt>피하고 싶은 것</dt><dd>[채울 자리]</dd></div>
-                </dl>
-              </article>
-            </div>
+            <table class="vs-table">
+              <caption class="sr-only">신인 배우와 경력 배우 인터뷰 비교</caption>
+              <thead>
+                <tr>
+                  <th scope="col"><span class="sr-only">주제</span></th>
+                  <th scope="col">
+                    <div class="vs-head persona-head">
+                      <!-- 아바타 이미지: <img src="../images/project-01/persona-xx.png" alt=""> 로 교체 -->
+                      <div class="persona-avatar" aria-hidden="true"><svg viewBox="0 0 48 48" width="40" height="40"><circle cx="24" cy="18" r="9" fill="currentColor"/><path d="M8 42c2-9 9-13 16-13s14 4 16 13" fill="currentColor"/></svg></div>
+                      <div>
+                        <span class="persona-tag">신인 배우</span>
+                        <p class="persona-quote">“어디서든 불러주면 감사하지만, 디렉터에게만 보여주고 싶어요”</p>
+                      </div>
+                    </div>
+                  </th>
+                  <th scope="col">
+                    <div class="vs-head persona-head">
+                      <!-- 아바타 이미지: <img src="../images/project-01/persona-xx.png" alt=""> 로 교체 -->
+                      <div class="persona-avatar" aria-hidden="true"><svg viewBox="0 0 48 48" width="40" height="40"><circle cx="24" cy="18" r="9" fill="currentColor"/><path d="M8 42c2-9 9-13 16-13s14 4 16 13" fill="currentColor"/></svg></div>
+                      <div>
+                        <span class="persona-tag">경력 배우</span>
+                        <p class="persona-quote">“이미지가 중요해서, 말 한마디도 파급력이 있어요”</p>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">정보 경로</th>
+                  <td>연기학원 공고, 학원 선생님, 학원을 찾아오는 캐스팅 디렉터, 지인</td>
+                  <td>소속사와 매니저</td>
+                </tr>
+                <tr>
+                  <th scope="row">정보의 질</th>
+                  <td>단역은 대본 없이 대사 한두 줄과 간단한 상황만 안다</td>
+                  <td>대본과 감독 정도만 알고, 대부분 구두나 카톡으로 받는다</td>
+                </tr>
+                <tr>
+                  <th scope="row">노출</th>
+                  <td>지금은 부담 없지만, 이미지가 생기면 부담될 것 같다. 캐스팅 디렉터에게만 보여주고 싶다</td>
+                  <td>이미지가 중요하고 말 한마디의 파급력이 있어 부담된다</td>
+                </tr>
+                <tr>
+                  <th scope="row">보여주기 싫은 대상</th>
+                  <td>같은 배우들</td>
+                  <td>대중과 업계 전반</td>
+                </tr>
+                <tr>
+                  <th scope="row">정보 공유</th>
+                  <td>오디션 후기, 감독 스타일을 자유롭게 나눈다</td>
+                  <td>작은 배역은 친한 신인에게만 묻는다</td>
+                </tr>
+                <tr>
+                  <th scope="row">지원 기준</th>
+                  <td>필모그래피가 될 배역인지, 비중이 있는지</td>
+                  <td>작품성과 감독</td>
+                </tr>
+                <tr>
+                  <th scope="row">알고 싶은 정보</th>
+                  <td>감독, 주연 배우, 지원자 수 (비용을 내고서라도)</td>
+                  <td>몇 부작인지, 같은 배역의 다른 배우가 있는지</td>
+                </tr>
+                <tr class="is-key">
+                  <th scope="row">원하는 기회</th>
+                  <td>나에게 맞는 배역</td>
+                  <td>나에게 딱 맞는 배역</td>
+                </tr>
+              </tbody>
+            </table>
 
             <dl class="insight-foot">
               <div><dt>대상 선정</dt><dd>[선정 기준을 적어주세요]</dd></div>
@@ -197,10 +216,61 @@
             </dl>
           </div>
 
+          <!-- 가설 검증 결과: 가설 → 결과 → 연결된 설계 -->
+          <section class="verify" aria-labelledby="verify-title">
+            <div class="hypo-head">
+              <p class="hypo-eyebrow">가설 검증 결과</p>
+              <h3 class="hypo-title" id="verify-title">다섯 가지 가설은 모두 맞았고, 하나는 더 구체적이었어요.</h3>
+            </div>
+            <div class="verify-cols" aria-hidden="true"><span>가설</span><span>결과</span><span>연결된 설계</span></div>
+            <ol class="verify-list">
+              <li class="verify-row">
+                <p class="verify-hypo"><span class="verify-num">H1</span>오디션 정보는 닫혀 있다</p>
+                <div class="verify-result">
+                  <span class="verify-badge">맞음</span>
+                  <p>두 배우 모두 정보를 얻는 경로가 한정적이고, 얻는 정보도 부족했다.</p>
+                </div>
+                <ul class="verify-design" aria-label="연결된 설계"><li>홈</li><li>상세 조건</li></ul>
+              </li>
+              <li class="verify-row is-key">
+                <p class="verify-hypo"><span class="verify-num">H2</span>배우는 기회를 원하지만 노출은 꺼린다</p>
+                <div class="verify-result">
+                  <span class="verify-badge">맞음 · 더 구체적</span>
+                  <p>신인도 “디렉터에게만”을 원했다. 꺼리는 건 노출 자체가 아니라, 원하지 않는 사람에게 보이는 것이다.</p>
+                </div>
+                <ul class="verify-design" aria-label="연결된 설계"><li>공개 범위 3단계</li></ul>
+              </li>
+              <li class="verify-row">
+                <p class="verify-hypo"><span class="verify-num">H3</span>정보 공유는 사람마다 다르다</p>
+                <div class="verify-result">
+                  <span class="verify-badge">맞음</span>
+                  <p>신인은 자유롭게 나누고, 경력 배우는 가려서 나눈다.</p>
+                </div>
+                <ul class="verify-design" aria-label="연결된 설계"><li>커뮤니티 익명 선택</li></ul>
+              </li>
+              <li class="verify-row">
+                <p class="verify-hypo"><span class="verify-num">H4</span>지원 전에 가능성을 알고 싶어 한다</p>
+                <div class="verify-result">
+                  <span class="verify-badge">맞음</span>
+                  <p>신인은 지원자 수를 “비용을 내고서라도” 보고 싶다고 했다.</p>
+                </div>
+                <ul class="verify-design" aria-label="연결된 설계"><li>경쟁률 (멤버십)</li></ul>
+              </li>
+              <li class="verify-row">
+                <p class="verify-hypo"><span class="verify-num">H5</span>디렉터는 관심이 생기면 더 본다</p>
+                <div class="verify-result">
+                  <span class="verify-badge">맞음</span>
+                  <p>관심이 생기면 영상과 미팅으로 이어진다.</p>
+                </div>
+                <ul class="verify-design" aria-label="연결된 설계"><li>포트폴리오 3개 · 10개</li></ul>
+              </li>
+            </ol>
+          </section>
+
           <!-- 초기 가설 vs 인터뷰로 알게 된 것 -->
           <div class="hypo">
             <div class="hypo-head">
-              <p class="hypo-eyebrow">가설 검증</p>
+              <p class="hypo-eyebrow">가설 수정</p>
               <h3 class="hypo-title">탐색의 문제라고 생각했던 것이, 실제로는 판단과 성장의 문제였어요.</h3>
               <p class="hypo-sub">배우들에게 가장 어려운 일은 오디션을 “찾는 것”이라 보고 흩어진 정보를 한곳에 모으려 했지만,<br class="br-pc"> 소속 배우와 매니저 인터뷰를 통해 두 가지가 다르다는 걸 알게 됐어요.</p>
             </div>
@@ -531,6 +601,6 @@
     <div class="container">© <span id="year"></span> Lee Jihyeon</div>
   </footer>
 
-  <script src="../js/main.js?v=20261109p"></script>
+  <script src="../js/main.js?v=20261109q"></script>
 </body>
 </html>
