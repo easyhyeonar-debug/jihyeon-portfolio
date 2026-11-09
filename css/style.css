@@ -239,7 +239,19 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .detail .case, .detail .overview { scroll-margin-top: 24px; }
 .overview { margin-bottom: 64px; }
 .project .overview-title { font-size: 13px; line-height: 1.6; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.project .overview-headline { margin-bottom: 32px; font-size: 20px; line-height: 1.5; font-weight: 700; letter-spacing: -0.01em; }
 .overview p { margin-bottom: 0; font-size: 14px; }
+/* Overview 프로젝트 정보 (Team Project / Output / Period / 스토어) */
+.overview-body { display: grid; gap: 40px; }
+.overview-visuals { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 32px; }
+.overview-visuals img { width: 100%; height: auto; border-radius: 16px; }
+.overview-side { display: grid; gap: 28px; }
+.project-info { display: grid; gap: 28px; }
+.project-info dt { margin-bottom: 8px; font-size: 16px; font-weight: 700; }
+.project-info dd { font-size: 14px; line-height: 1.7; color: var(--muted); }
+.project-info .project-info-gap { margin-top: 12px; }
+.store-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.store-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; background: var(--thumb); color: var(--muted); }
 .overview p + p { margin-top: 16px; }
 
 /* 케이스 스터디 섹션 (문제 → 인사이트 → 전략 → 디자인 → 회고) */
@@ -660,7 +672,10 @@ html.paged {
   :root { --header-h: 64px; --gutter: 32px; --section-y: 104px; }
   .back-float { top: 24px; left: calc(24px + var(--safe-l)); width: 48px; height: 48px; }
   .overview p { font-size: 18px; }
+  .project-info dt { font-size: 18px; }
+  .project-info dd { font-size: 16px; }
   .case h2 { font-size: 21px; }
+  .project .overview-headline { font-size: 28px; }
   .project-body .case p { font-size: 18px; }
   .project-body .case .case-note { font-size: 13px; }
   .case-subtitle { font-size: 18px; }
@@ -694,6 +709,14 @@ html.paged {
 /* ---------- lg: 1024+ 태블릿 가로 · 노트북 ---------- */
 @media (min-width: 1024px) {
   :root { --gutter: 40px; --section-y: 120px; }
+  .overview-body { grid-template-columns: minmax(0, 1fr) 380px; column-gap: 80px; row-gap: 48px; align-items: stretch; }
+  /* 오른쪽 정보 패널을 이미지와 같은 줄에 두어 위 끝을 이미지에 맞춤 */
+  .overview-main { display: contents; }
+  .overview-main > p { grid-column: 1; grid-row: 1; }
+  .overview-visuals { grid-column: 1; grid-row: 2; }
+  .overview-side { grid-column: 2; grid-row: 2; }
+  .overview-side { display: flex; flex-direction: column; gap: 28px; }
+  .overview-visuals { gap: 24px; margin-top: 0; }
   .persona-grid { grid-template-columns: repeat(3, 1fr); }
   .case-scroller > li { flex-basis: 32vw; }
   /* PC: 제목 한 줄, 40pt. 1024~1100px처럼 폭이 모자라면 한 줄에 맞게 살짝 줄어듦 */
