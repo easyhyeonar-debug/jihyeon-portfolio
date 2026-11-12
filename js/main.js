@@ -51,16 +51,29 @@ if (backBtn) {
 // 가로 스크롤 카드: 멈추는 위치를 글 시작선에 맞춤 (양옆 여백 = 화면 밖으로 흘러가는 영역)
 document.querySelectorAll('.case-scroller').forEach((track) => {
   const box = track.parentElement;
+  // .is-centered: 카드 한 장이 화면 가운데에 오도록 (가설 검증 결과)
+  const centered = track.classList.contains('is-centered');
   const align = () => {
     // 글 영역 좌우 끝 ~ 화면 끝 거리 (스크롤바 폭 제외한 실제 화면 기준)
     const r = box.getBoundingClientRect();
+    const vw = document.documentElement.clientWidth;
     const left = Math.round(r.left);
-    const right = Math.round(document.documentElement.clientWidth - r.right);
+    const right = Math.round(vw - r.right);
+    const card = track.firstElementChild;
+    const pad = centered && card ? Math.max(0, Math.round((vw - card.offsetWidth) / 2)) : null;
     Object.assign(track.style, {
       marginLeft: `${-left}px`, marginRight: `${-right}px`,
-      paddingLeft: `${left}px`, paddingRight: `${right}px`,
-      scrollPaddingInline: `${left}px ${right}px`,
+      paddingLeft: `${pad ?? left}px`, paddingRight: `${pad ?? right}px`,
+      scrollPaddingInline: centered ? '0px' : `${left}px ${right}px`,
     });
+  };
+  // 가운데 정렬 트랙은 처음에 가운데 카드가 화면 중앙에 오게
+  const startPos = () => {
+    if (!centered) return 0;
+    const mid = track.children[Math.floor(track.children.length / 2)];
+    if (!mid) return 0;
+    const tr = track.getBoundingClientRect(), mr = mid.getBoundingClientRect();
+    return track.scrollLeft + (mr.left + mr.width / 2) - (tr.left + tr.width / 2);
   };
   // 처음엔 첫 카드가 글 시작선에 맞춰지도록. 스냅이 먼저 켜져 있으면 브라우저가
   // 엉뚱한 카드(끝 카드)에 붙여버려서, 위치를 잡은 다음 프레임에 스냅을 켠다.
@@ -73,6 +86,7 @@ document.querySelectorAll('.case-scroller').forEach((track) => {
     track.classList.remove('is-snapping');
     align();
     track.scrollLeft = 0;
+    track.scrollLeft = startPos();
     setTimeout(() => track.classList.add('is-snapping'), 50);
   };
   reset();
@@ -147,7 +161,7 @@ if (year) year.textContent = new Date().getFullYear();
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   // 묶음 요소는 통째로 말고 안쪽 항목을 하나씩 올림
-  const GROUP = '.overview-body, .insight-board, .insight-context, .verify, .verify-list, .hypo, .hs-list, .str-cards, .ab-grid, .ds, .grid, .about';
+  const GROUP = '.overview-body, .insight-board, .insight-context, .verify, .hypo, .hs-list, .str-cards, .ab-grid, .ds, .grid, .about';
   const targets = [];
   const collect = (el) => {
     [...el.children].forEach((child) => {
