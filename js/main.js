@@ -161,7 +161,7 @@ if (year) year.textContent = new Date().getFullYear();
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   // 묶음 요소는 통째로 말고 안쪽 항목을 하나씩 올림
-  const GROUP = '.overview-body, .insight-board, .insight-context, .verify, .hypo, .hs-list, .str-cards, .ab-grid, .ds, .grid, .about';
+  const GROUP = '.overview-body, .insight-board, .insight-context, .verify, .hypo, .hs-rows, .str-cards, .ab-grid, .ds, .grid, .about';
   const targets = [];
   const collect = (el) => {
     [...el.children].forEach((child) => {

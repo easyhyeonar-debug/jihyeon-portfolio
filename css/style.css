@@ -268,7 +268,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .project-body .case p + p { margin-top: 16px; }
 .case .placeholder { aspect-ratio: 16 / 10; border-radius: 10px; background: var(--thumb); margin-top: 24px; }
 .project-body .case .case-note { margin-top: 12px; font-size: 12px; color: var(--muted); }
-.case-subtitle { margin: 64px 0 32px; font-size: 20px; line-height: 1.5; font-weight: 700; letter-spacing: -0.01em; }
+.case-subtitle { margin: 64px 0 32px; font-size: 18px; line-height: 1.5; font-weight: 700; letter-spacing: -0.01em; }
 /* 구분용 어두운 띠: 화면 폭 전체로 배경을 깔고 내용은 그대로 컨테이너 안에 */
 .case-band {
   padding: 88px 0;
@@ -696,7 +696,7 @@ html.paged {
   .project .overview-headline { font-size: 28px; }
   .project-body .case p { font-size: 18px; }
   .project-body .case .case-note { font-size: 13px; }
-  .case-subtitle { font-size: 28px; }
+  .case-subtitle { font-size: 24px; } /* 가설 수정 제목과 같은 크기 */
   .case-list { font-size: 18px; }
   .insight-context { grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .persona-avatar { width: 96px; height: 96px; }
@@ -890,7 +890,8 @@ html.paged {
   background: radial-gradient(ellipse 30% 50% at 50% 50%, rgba(182, 100, 255, .45), rgba(140, 70, 240, .14) 55%, transparent 80%);
 }
 .verify .verify-list.case-scroller {
-  display: flex; margin-top: 44px; padding-top: 24px; padding-bottom: 32px;
+  /* 빛(그림자)이 잘리지 않게 위아래 여유를 넉넉히 두고, 늘어난 만큼 바깥 여백은 줄임 */
+  display: flex; margin-top: -20px; margin-bottom: -64px; padding-top: 88px; padding-bottom: 96px;
   /* 화면 가운데만 밝고 양쪽 가장자리로 갈수록 어두워짐 */
   --edge: linear-gradient(90deg, rgba(0, 0, 0, .04) 0%, rgba(0, 0, 0, .3) 18%, rgba(0, 0, 0, .8) 34%, #000 42%, #000 58%, rgba(0, 0, 0, .8) 66%, rgba(0, 0, 0, .3) 82%, rgba(0, 0, 0, .04) 100%);
   -webkit-mask-image: var(--edge); mask-image: var(--edge);
@@ -912,7 +913,7 @@ html.paged {
 }
 .project-body .case .verify .verify-hypo { display: block; font-size: 16px; line-height: 1.45; font-weight: 800; color: #fff; }
 .verify .verify-num { display: block; margin-bottom: 6px; font-size: 12px; letter-spacing: .08em; color: rgba(255, 255, 255, .7); }
-.verify .verify-badge, .verify .verify-row.is-key .verify-badge { margin-bottom: 8px; border-radius: 6px; color: #7a2cf0; background: #fff; }
+.verify .verify-badge, .verify .verify-row.is-key .verify-badge { margin-bottom: 2px; border-radius: 6px; color: #7a2cf0; background: #fff; }
 .project-body .case .verify .verify-result p { font-size: 13px; line-height: 1.6; color: rgba(255, 255, 255, .85); }
 .verify .verify-design { justify-content: center; }
 .verify .verify-design li { border-radius: 6px; color: #fff; background: rgba(255, 255, 255, .18); }
@@ -921,6 +922,133 @@ html.paged {
   #insight .verify .verify-row { min-height: 300px; padding: 32px 26px; }
   .project-body .case .verify .verify-hypo { font-size: 18px; }
   .project-body .case .verify .verify-result p { font-size: 14px; }
+}
+
+/* ===== 가설 수정: 한눈에 보기 (처음 생각 → 들은 것 → 바뀐 생각 → 설계) ===== */
+.hs-rows { display: grid; gap: var(--gap); margin-top: 40px; list-style: none; }
+.hs-row { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.hs-cell { display: flex; flex-direction: column; gap: 8px; padding: 20px; border-radius: 16px; background: #1b1a22; }
+.hs-label { font-size: 12px; font-weight: 700; letter-spacing: .02em; color: var(--muted); }
+.hs-cell .hs-num { align-self: flex-start; }
+.hs-cell--old s { font-size: 15px; line-height: 1.5; color: var(--muted); text-decoration-color: rgba(180, 156, 255, .8); text-decoration-thickness: 2px; }
+.project-body .case .hs-said { font-size: 15px; line-height: 1.55; font-weight: 600; color: var(--text); }
+.hs-who { font-size: 12px; color: var(--muted); }
+.hs-cell--new { color: #fff; background: linear-gradient(160deg, #a45cff 0%, #8b3dff 60%, #7a2cf0 100%); box-shadow: 0 0 32px rgba(150, 70, 255, .35); }
+.hs-cell--new .hs-label { color: rgba(255, 255, 255, .75); }
+.project-body .case .hs-new-text { font-size: 17px; line-height: 1.45; font-weight: 800; color: #fff; }
+.hs-new-text em { font-style: normal; color: #fff; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .55); text-underline-offset: 4px; }
+.hs-tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
+.hs-tags li { padding: 5px 10px; border-radius: 6px; font-size: 13px; font-weight: 600; color: #d8d6e6; background: #2a2836; }
+.hs-tags li.is-key { color: #fff; background: #8b3dff; }
+.project-body .case .hs-goal { font-size: 13px; line-height: 1.55; color: var(--muted); }
+.hs-rows .hs-arrow { justify-self: center; color: #b49cff; transform: rotate(90deg); }
+@media (min-width: 1024px) {
+  .hs-row { grid-template-columns: minmax(0, .9fr) auto minmax(0, 1.1fr) auto minmax(0, 1.1fr) auto minmax(0, 1.2fr); align-items: stretch; gap: 10px; }
+  .hs-rows .hs-arrow { align-self: center; transform: none; }
+  .hs-cell { padding: 24px; }
+  .project-body .case .hs-new-text { font-size: 18px; }
+}
+
+/* ===== 뱃지 통일: 모양·크기는 모두 같게 (6px 라운드, 13px, 6·12px 여백) ===== */
+.ctx-tag, .persona-tag, .hs-num, .hypo-tag, .tier-tag, .verify .verify-badge, .verify .verify-row.is-key .verify-badge {
+  display: inline-block; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 700; line-height: 1.4;
+}
+/* 어두운 카드 위 뱃지는 같은 회색 (보라 카드 위만 흰색) */
+.persona-tag, .hs-num { color: #b9b8c6; background: #2a2836; }
+.project-body .case .persona-tag { margin: 0; }
+
+/* ===== 03 강점 카드: 위 보라 그라데이션 제목 + 아래 두 줄 (레퍼런스 카드 스타일) ===== */
+#strategy .str-card { padding: 0; overflow: hidden; border-radius: 16px; background: #1b1a22; box-shadow: none; }
+.str-card .str-head { margin: 0; padding: 22px 24px; text-align: center; font-size: 18px; font-weight: 800; color: #fff; background: linear-gradient(135deg, #b46dff 0%, #8b3dff 55%, #6a22e0 100%); }
+.str-body { display: grid; gap: 14px; padding: 24px 28px 28px; }
+.str-row { display: grid; grid-template-columns: 72px 1fr; gap: 12px; align-items: baseline; }
+.str-row dt { font-size: 12px; font-weight: 800; letter-spacing: .04em; color: var(--muted); }
+.str-row dd { margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); }
+.str-row.is-effect dt { color: #b49cff; }
+.str-row.is-effect dd { font-size: 15px; font-weight: 700; color: #fff; }
+@media (min-width: 1024px) {
+  .str-card .str-head { padding: 26px 32px; font-size: 20px; }
+  .str-body { padding: 28px 36px 32px; }
+  .str-row dd { font-size: 15px; }
+  .str-row.is-effect dd { font-size: 17px; }
+}
+
+/* ===== 타이포 계층 & 그룹 간격 (전체 통일) =====
+   L0 섹션 제목  : 모바일 24 / PC 36   (라벨 → 제목 12, 제목 → 리드문 20)
+   L1 블록 제목  : 모바일 18 / PC 24   (블록 사이 72 / 96, 제목 → 설명 12, 설명 → 내용 32)
+   L2 카드 제목  : 모바일 16 / PC 18
+   본문          : 모바일 14 / PC 18 (섹션 리드·블록 설명) · 카드 안 본문 14 / 15
+   라벨·캡션     : 12~13 */
+.project .overview-headline, .project-body .case > h2 { margin-bottom: 20px; font-size: 24px; line-height: 1.35; letter-spacing: -0.02em; }
+.project .overview-title, .project-body .case .case-label { margin-bottom: 12px; }
+/* L1: 블록 제목 */
+.project-body .case .case-subtitle, .project-body .case .hypo .hypo-title, .project-body .case .verify .hypo-title, .project-body .case .case-screen h3 { margin-top: 0; font-size: 18px; line-height: 1.4; letter-spacing: -0.01em; }
+.project-body .case .case-subtitle { margin: 72px 0 12px; }
+.project-body .case .hypo, .project-body .case .verify { margin-top: 72px; }
+.project-body .case .hypo-eyebrow { display: block; margin-bottom: 8px; }
+.project-body .case .hypo-title + .hypo-sub, .project-body .case .case-subtitle + p { margin-top: 0; color: var(--muted); }
+.project-body .case .case-subtitle + p { margin-bottom: 32px; }
+.project-body .case .hypo-head + .hs-rows, .project-body .case .case-subtitle + p + .str-cards { margin-top: 32px; }
+.str-cards, .flow, .loop { margin-top: 32px; }
+/* L2: 카드 제목 */
+.str-card .str-head, .flow-node h4, .project-body .case .persona-quote, .project-body .case .vs-head .persona-quote, .ctx-title,
+.project-body .case .hs-new-text, .project-body .case .verify .verify-hypo { font-size: 16px; line-height: 1.45; }
+/* 가설 검증 카드 줄은 빛 여유(아래 96px)가 있어서, 다음 블록 간격은 그만큼 빼서 맞춤 */
+.project-body .case .verify + .hypo { margin-top: 40px; }
+/* 카드 안 본문 */
+.project-body .case .vs-a, .project-body .case .ctx .ctx-text, .str-row.is-effect dd, .project-body .case .hs-said { font-size: 14px; }
+@media (min-width: 1024px) {
+  .project .overview-headline, .project-body .case > h2 { font-size: 36px; }
+  .project-body .case .case-subtitle, .project-body .case .hypo .hypo-title, .project-body .case .verify .hypo-title, .project-body .case .case-screen h3 { font-size: 24px; }
+  .project-body .case .case-subtitle { margin-top: 96px; }
+  .project-body .case .hypo, .project-body .case .verify { margin-top: 96px; }
+  .project-body .case .hypo-title + .hypo-sub, .project-body .case .case-subtitle + p { font-size: 16px; }
+  .str-card .str-head, .flow-node h4, .project-body .case .persona-quote, .project-body .case .vs-head .persona-quote, .ctx-title,
+  .project-body .case .hs-new-text, .project-body .case .verify .verify-hypo { font-size: 18px; }
+  .project-body .case .verify + .hypo { margin-top: 64px; }
+  .project-body .case .vs-a, .project-body .case .ctx .ctx-text, .str-row.is-effect dd, .project-body .case .hs-said { font-size: 15px; }
+}
+
+/* ===== 03 서비스 구조: 유리 패널 + 번호 스텝 (빛나는 연결선) ===== */
+.steps-panel {
+  margin-top: 32px; padding: 32px 24px; border-radius: 16px;
+  background: linear-gradient(160deg, rgba(150, 100, 255, .10), rgba(255, 255, 255, .03) 60%), rgba(28, 26, 38, .7);
+  box-shadow: inset 0 0 0 1px rgba(190, 160, 255, .14), 0 20px 60px rgba(0, 0, 0, .35);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
+.steps { position: relative; display: grid; gap: 28px; list-style: none; }
+.step { position: relative; display: grid; justify-items: center; gap: 8px; padding-top: 52px; text-align: center; } /* 가운데 정렬 */
+/* 번호 사이 연결선: 모바일은 세로 */
+.step:not(:last-child)::before { /* 모바일: 각 단계 아래 세로선 */
+  content: ""; position: absolute; left: calc(50% - 1px); top: calc(100% + 4px); height: 20px; width: 2px;
+  background: linear-gradient(180deg, #b48cff, rgba(180, 140, 255, .15));
+  box-shadow: 0 0 10px rgba(180, 120, 255, .6);
+}
+.step-num {
+  position: absolute; left: 50%; top: 0; transform: translateX(-50%); display: grid; place-items: center; width: 36px; height: 36px; border-radius: 8px;
+  font-size: 16px; font-weight: 800; color: #1d1440; background: #cdb6ff; box-shadow: 0 0 18px rgba(180, 120, 255, .55);
+}
+.step.is-key .step-num { color: #fff; background: #8b3dff; }
+.project-body .case .step-tag { font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #b49cff; }
+.step-title { font-size: 18px; font-weight: 800; line-height: 1.4; }
+.project-body .case .step-desc { max-width: 300px; font-size: 14px; line-height: 1.65; color: var(--muted); }
+@media (min-width: 744px) {
+  .steps-panel { padding: 40px 40px 44px; }
+  .steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .step { padding-top: 60px; }
+  .step-num { width: 40px; height: 40px; }
+  /* PC: 번호 사이 가로 연결선 */
+  .step:not(:last-child)::before {
+    left: calc(50% + 28px); right: calc(-50% - 32px + 28px); top: 19px; width: auto; height: 2px; /* 번호 가운데 → 다음 번호 가운데 */
+    background: linear-gradient(90deg, #b48cff, rgba(180, 140, 255, .25));
+  }
+}
+@media (min-width: 1024px) {
+  .steps-panel { padding: 48px 56px 52px; }
+  .steps { gap: 48px; }
+  .step:not(:last-child)::before { right: calc(-50% - 48px + 28px); }
+  .step-title { font-size: 20px; }
+  .project-body .case .step-desc { font-size: 15px; }
 }
 
 /* 스크롤 등장 인터랙션 (JS가 .reveal을 붙일 때만 동작) */
