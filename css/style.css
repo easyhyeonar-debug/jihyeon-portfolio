@@ -1116,8 +1116,8 @@ html.paged {
 .sf-arrow { flex: none; align-self: center; margin-top: -60px; color: #b49cff; }
 @media (min-width: 1024px) {
   .sf { gap: 56px; }
-  .sf-track { gap: 20px; overflow: visible; }
-  .sf-screen { flex: 0 0 220px; }
+  .sf-track { gap: 20px; }
+  .sf-screen { flex: 0 0 200px; }
   .sf-screen figcaption b { font-size: 17px; }
   .sf-screen figcaption span { font-size: 14px; }
 }
@@ -1164,6 +1164,56 @@ html.paged {
 @media (min-width: 744px) {
   .ab-icon--asis { width: 40px; }
   .ab-icon--tobe { width: 64px; }
+}
+
+/* ===== 04 화면 상세 (주석형 쇼케이스) ===== */
+.sd { margin-top: 48px; }
+.sd + .sd { margin-top: 96px; }
+.project-body .case .sd-title { display: flex; justify-content: center; max-width: none; margin-bottom: 32px; }
+.sd-title span {
+  padding: 10px 28px; border-radius: 10px; border: 1px solid rgba(180, 140, 255, .55);
+  background: linear-gradient(180deg, rgba(138, 56, 245, .22), rgba(138, 56, 245, .06));
+  box-shadow: 0 0 24px rgba(138, 56, 245, .35), inset 0 0 12px rgba(180, 140, 255, .18);
+  font: 700 18px/1 "Montserrat", sans-serif; letter-spacing: .12em; color: #fff;
+}
+.sd-stage { position: relative; }
+.sd-phone { position: relative; width: min(100%, 300px); margin: 0 auto; border-radius: 28px; box-shadow: 0 0 0 6px #1b1a22, 0 0 60px rgba(138, 56, 245, .25); }
+.sd-phone img { display: block; width: 100%; height: auto; border-radius: 28px; }
+.sd-pin {
+  position: absolute; top: var(--y); right: -12px; transform: translateY(-50%);
+  display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%;
+  background: #8a38f5; color: #fff; font-size: 12px; font-weight: 700;
+  box-shadow: 0 0 0 4px rgba(138, 56, 245, .25), 0 0 14px rgba(138, 56, 245, .7);
+}
+.sd-notes { list-style: none; display: grid; gap: 12px; margin-top: 32px; padding: 0; }
+.sd-note { padding: 16px 20px; border-radius: 16px; background: var(--card); box-shadow: var(--card-ring); }
+.project-body .case .sd-head { display: flex; align-items: center; gap: 8px; max-width: none; margin: 0 0 8px; }
+.sd-num { display: grid; place-items: center; flex: none; width: 20px; height: 20px; border-radius: 50%; background: #8a38f5; font-size: 11px; font-weight: 700; color: #fff; }
+.sd-head b { font: 700 16px/1.2 "Montserrat", sans-serif; letter-spacing: .04em; color: #fff; }
+.sd-head small { font-size: 12px; color: var(--muted); }
+.project-body .case .sd-desc { max-width: none; margin: 0; font-size: 14px; line-height: 1.7; color: #d4d1e0; }
+.sd-desc em { font-style: normal; font-weight: 700; color: #c9b0ff; }
+@media (min-width: 900px) {
+  .sd-pin { right: auto; left: 100%; width: 12px; height: 12px; font-size: 0; transform: translate(-50%, -50%); }
+  .sd-pin--l { left: 0; }
+  .sd-pin--r { left: 100%; }
+  .sd-pin--l { margin-left: 28px; } .sd-pin--r { margin-left: -28px; }
+  .sd-notes { position: absolute; inset: 0; display: block; margin: 0; }
+  .sd-note { position: absolute; top: var(--y); width: calc(50% - 150px - 72px); max-width: 360px; padding: 0; background: none; box-shadow: none; transform: translateY(-14px); }
+  .sd-note--r { left: calc(50% + 150px + 72px); }
+  .sd-note--l { right: calc(50% + 150px + 72px); text-align: right; }
+  .sd-note--l .sd-head { justify-content: flex-end; }
+  .sd-num { display: none; }
+  .sd-head b { font-size: 20px; }
+  .sd-note--l .sd-head small { order: -1; }
+  .project-body .case .sd-desc { font-size: 15px; }
+  /* 점선 리더 라인: 노트 → 화면 안쪽 핀 */
+  .sd-note::before { content: ""; position: absolute; top: 14px; width: calc(72px + 28px - 6px); border-top: 1px dashed rgba(201, 176, 255, .6); }
+  .sd-note--r::before { right: 100%; margin-right: 17px; width: calc(72px + 28px - 23px); }
+  .sd-note--l::before { left: 100%; margin-left: 17px; width: calc(72px + 28px - 23px); }
+  .sd-note::after { content: ""; position: absolute; top: 10px; width: 9px; height: 9px; border-radius: 50%; background: #fff; box-shadow: 0 0 8px rgba(255, 255, 255, .7); }
+  .sd-note--r::after { right: 100%; margin-right: 8px; }
+  .sd-note--l::after { left: 100%; margin-left: 8px; }
 }
 
 /* 스크롤 등장 인터랙션 (JS가 .reveal을 붙일 때만 동작) */
